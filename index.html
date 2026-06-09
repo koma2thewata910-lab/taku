@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拓 / TAKU — 若者が社会を動かす側へ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ======== HERO ======== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 80px 24px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(28,26,22,0.012) 3px, rgba(28,26,22,0.012) 4px);
+      pointer-events: none;
+    }
+
+    .hanko {
+      position: absolute;
+      top: calc(var(--nav-h) + 24px);
+      right: clamp(24px, 5vw, 60px);
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--shu);
+      color: var(--shu);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px; font-weight: 700;
+      writing-mode: vertical-rl;
+      letter-spacing: 0.1em;
+      opacity: 0.65; z-index: 10;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(40px, 6vw, 80px);
+      max-width: 1100px;
+      width: 100%;
+    }
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-img-col { order: -1; display: flex; justify-content: center; }
+    }
+
+    .hero-text-col { display: flex; flex-direction: column; align-items: flex-start; }
+    @media (max-width: 760px) { .hero-text-col { align-items: center; } }
+
+    .hero-org-label {
+      font-size: 9px;
+      letter-spacing: 0.55em;
+      color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .hero-copy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+    .hero-copy em { font-style: normal; color: var(--shu); }
+
+    .hero-sub {
+      font-size: clamp(13px, 1.6vw, 15px);
+      color: var(--ink-light);
+      line-height: 2;
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 460px;
+    }
+
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 760px) { .hero-btns { justify-content: center; } }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--washi);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.22em;
+      padding: 16px 40px;
+      text-decoration: none;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #2e2a22; transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid var(--line);
+      color: var(--ink-light);
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.18em;
+      padding: 15px 32px;
+      text-decoration: none;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+    .shodou-img {
+      width: clamp(200px, 34vw, 420px);
+      height: clamp(200px, 34vw, 420px);
+      object-fit: contain;
+      filter: drop-shadow(2px 4px 16px rgba(28,26,22,0.14));
+      animation: ink-settle 1.2s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes ink-settle {
+      from { opacity:0; transform: scale(0.93) translateY(10px); }
+      to   { opacity:1; transform: none; }
+    }
+
+    .scroll-hint {
+      position: absolute; bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      font-size: 9px; letter-spacing: 0.3em; color: var(--ink-muted);
+      animation: fall 2.5s ease-in-out infinite;
+    }
+    .scroll-hint::after { content:''; width:1px; height:36px; background: linear-gradient(to bottom, var(--ink-muted), transparent); }
+    @keyframes fall {
+      0%,100% { transform: translateX(-50%) translateY(0); opacity:.4; }
+      50%      { transform: translateX(-50%) translateY(7px); opacity:.7; }
+    }
+
+    /* ======== VISION ======== */
+    .vision-block {
+      border-left: 3px solid var(--ink);
+      padding: 28px 36px;
+      background: var(--washi-2);
+      margin-bottom: 40px;
+    }
+    .vision-block p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(15px, 2.2vw, 20px);
+      font-weight: 500;
+      line-height: 2;
+      letter-spacing: 0.05em;
+    }
+
+    /* ======== BASIC POLICY ======== */
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 720px) { .policy-grid { grid-template-columns: 1fr; } }
+
+    .policy-card {
+      background: var(--washi);
+      padding: 40px 32px;
+      transition: background 0.25s;
+      position: relative;
+    }
+    .policy-card:hover { background: var(--washi-2); }
+
+    .policy-num {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 200;
+      color: var(--ink);
+      opacity: 0.08;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .policy-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(16px, 1.8vw, 19px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .policy-text {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .policy-accent-line {
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: transparent;
+      transition: background 0.25s;
+    }
+    .policy-card:hover .policy-accent-line { background: var(--shu); }
+
+    /* ======== DEPARTMENTS ======== */
+    .dept-overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 860px) { .dept-overview { grid-template-columns: 1fr; } }
+
+    .dept-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .dept-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(28,26,22,0.07); }
+
+    .dept-card-top {
+      padding: 36px 28px 28px;
+      flex: 1;
+    }
+
+    .dept-card-bar {
+      height: 3px;
+      width: 100%;
+    }
+    .dept-card.seisaku .dept-card-bar { background: var(--col-seisaku); }
+    .dept-card.kyoiku  .dept-card-bar { background: var(--col-kyoiku); }
+    .dept-card.kagaku  .dept-card-bar { background: var(--col-kagaku); }
+
+    .dept-card-tag {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+      border: 1px solid var(--line);
+      display: inline-block;
+      padding: 4px 10px;
+      margin-bottom: 18px;
+    }
+
+    .dept-card-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 2vw, 22px);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .dept-card-en {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .dept-card-mission {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .dept-card-footer {
+      padding: 16px 28px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--ink-light);
+      font-family: 'Inter', sans-serif;
+    }
+    .dept-card:hover .dept-card-footer { color: var(--ink); }
+    .dept-card-footer::after { content: '→'; font-size: 14px; letter-spacing: 0; }
+
+    /* ======== CONVERGENCE ======== */
+    .convergence-section {
+      background: var(--ink);
+      color: var(--washi);
+      padding: clamp(64px, 10vw, 112px) clamp(24px, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+    .convergence-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .convergence-inner { max-width: 860px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+
+    .convergence-section .section-label { color: rgba(255,255,255,0.35); justify-content: center; }
+    .convergence-section .section-label::after { background: rgba(255,255,255,0.15); }
+
+    .convergence-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .convergence-body {
+      font-size: clamp(13px, 1.6vw, 15px);
+      color: rgba(255,255,255,0.55);
+      line-height: 2;
+      font-weight: 300;
+      margin-bottom: 52px;
+    }
+    .convergence-body strong { color: rgba(255,255,255,0.85); font-weight: 400; }
+
+    .converge-svg {
+      width: 100%; max-width: 640px;
+      height: clamp(56px, 7vw, 80px);
+      display: block; margin: 0 auto 0;
+    }
+
+    .conv-stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(32px, 6vw, 72px);
+      flex-wrap: wrap;
+    }
+    .conv-stat { text-align: center; }
+    .conv-stat-num {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 200;
+      line-height: 1;
+      color: var(--shu);
+      margin-bottom: 8px;
+    }
+    .conv-stat-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.3);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ======== MEMBERS ======== */
+    .members-section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 860px) {
+      .members-section-inner { grid-template-columns: 1fr; }
+    }
+
+    /* left — dark photo panel */
+    .member-visual {
+      background: var(--ink);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: clamp(400px, 55vw, 580px);
+      overflow: hidden;
+    }
+
+    .member-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 10%;
+      mix-blend-mode: luminosity;
+      opacity: 0.75;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .members-section-inner:hover .member-photo {
+      opacity: 0.88;
+      transform: scale(1.02);
+    }
+
+    /* red vertical bar on left edge */
+    .member-visual::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--shu);
+      z-index: 2;
+    }
+
+    /* gradient overlay at bottom */
+    .member-visual::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(to top, rgba(28,26,22,0.92), transparent);
+      z-index: 1;
+    }
+
+    .member-visual-text {
+      position: relative;
+      z-index: 2;
+      padding: 32px 36px;
+    }
+
+    .member-role {
+      font-size: 9px;
+      letter-spacing: 0.5em;
+      color: var(--shu);
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .member-name-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .member-name-en {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.35);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+    }
+
+    /* right — detail panel */
+    .member-detail {
+      background: var(--washi);
+      padding: clamp(36px, 5vw, 60px) clamp(28px, 4vw, 52px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      border-left: 1px solid var(--line);
+    }
+
+    .member-detail-block h4 {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .member-detail-block h4::after {
+      content: '';
+      flex: 0 0 28px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .award-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .award-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .award-item:first-child { border-top: 1px solid var(--line); }
+
+    .award-name {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 400;
+      line-height: 1.5;
+      flex: 1;
+      font-family: 'Noto Serif JP', serif;
+    }
+    .award-org-tag {
+      font-size: 9px;
+      color: var(--ink-muted);
+      letter-spacing: 0.15em;
+      display: block;
+      margin-top: 3px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+    }
+
+    .award-prize {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--shu);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      white-space: nowrap;
+      background: rgba(192,57,43,0.06);
+      border: 1px solid rgba(192,57,43,0.18);
+      padding: 5px 12px;
+      flex-shrink: 0;
+    }
+
+    /* join CTA inside member panel */
+    .member-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 4px;
+      width: fit-content;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .member-cta:hover { gap: 20px; color: var(--shu); border-color: var(--shu); }
+    .member-cta::after { content: '→'; font-size: 14px; }
+
+    /* portrait row in member detail */
+    .member-portrait-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+    .member-portrait {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 0;
+      border: 1px solid var(--line);
+      flex-shrink: 0;
+      filter: grayscale(15%);
+    }
+
+    /* ======== FOUNDER'S WORD ======== */
+    .founders-word-section {
+      background: var(--ink);
+      color: var(--washi);
+      padding: clamp(72px, 10vw, 120px) clamp(24px, 8vw, 100px);
+      position: relative;
+      overflow: hidden;
+    }
+    .founders-word-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    /* large kanji watermark */
+    .founders-word-section::after {
+      content: '拓';
+      position: absolute;
+      right: -0.05em; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Kaisei HarunoUmi', serif;
+      font-size: clamp(200px, 28vw, 360px);
+      color: rgba(255,255,255,0.025);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .founders-word-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .founders-word-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 3.2vw, 36px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 48px;
+      color: #fff;
+    }
+    .founders-word-title em { font-style: normal; color: var(--shu); }
+
+    .founders-quote-lead {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 700;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin-bottom: 32px;
+      padding-left: 20px;
+      border-left: 3px solid var(--shu);
+    }
+    .founders-quote-body {
+      font-size: clamp(13px, 1.5vw, 15px);
+      color: rgba(255,255,255,0.6);
+      line-height: 2.1;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .founders-quote-final {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 1.7vw, 17px);
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      line-height: 2;
+      margin-bottom: 52px;
+      margin-top: 36px;
+    }
+    .founders-word-sig {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+    }
+    .founders-sig-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #fff;
+    }
+    .founders-sig-role {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.35);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ======== ROADMAP ======== */
+    .roadmap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 640px) { .roadmap { grid-template-columns: 1fr; } }
+
+    .roadmap-item {
+      background: var(--washi);
+      padding: 32px 28px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: start;
+      transition: background 0.25s;
+    }
+    .roadmap-item:hover { background: var(--washi-2); }
+
+    .roadmap-phase {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--shu);
+      font-weight: 600;
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+
+    .roadmap-text h4 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .roadmap-text p {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">拓 <span>TAKU</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li class="nav-dept-group">
+        <a href="dept-seisaku.html" class="dept-s">議会政策部</a>
+        <a href="dept-kyoiku.html"  class="dept-k">教育アクセス部</a>
+        <a href="dept-kagaku.html"  class="dept-g">医療・科学部</a>
+      </li>
+      <li><a href="join.html" class="nav-join">参加登録</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hanko">拓</div>
+    <div class="hero-inner">
+      <div class="hero-text-col fade-up">
+        <p class="hero-org-label">学生団体  /  2025年設立</p>
+        <h1 class="hero-copy">若者が、<em>政策の<br>作り手</em>になる。</h1>
+        <p class="hero-sub">
+          誰も踏み込んでいない荒野を切り拓く——<br>
+          すべての若者が社会を動かす側に立てる<br>日本をつくる。
+        </p>
+        <div class="hero-btns">
+          <a href="join.html" class="btn-primary">参加登録する</a>
+          <a href="#about" class="btn-ghost">団体について</a>
+        </div>
+      </div>
+      <div class="hero-img-col fade-up fade-up-d1">
+        <img class="shodou-img" src="taku-shodo.png" alt="拓" />
+      </div>
+    </div>
+    <div class="scroll-hint">SCROLL</div>
+  </section>
+
+  <!-- VISION -->
+  <div class="full-line"></div>
+  <section class="section fade-up" id="about">
+    <p class="section-label">Vision &amp; Mission</p>
+    <h2 class="section-title">「<em>機会格差</em>」を、<br>政策から変える。</h2>
+    <div class="vision-block">
+      <p>「生まれた環境に関係なく、すべての若者が社会を動かす側に立てる日本」<br>若者が政治に無関心なのではない。<strong>政治に関わる機会を持てていないだけだ。</strong></p>
+    </div>
+    <p class="body-text">
+      教育格差、医療・科学技術へのアクセス格差、難民の生活格差——<br>
+      それらの根底にあるのは「誰にどんな機会を保障するか」を決める<strong>政策・法律の問題</strong>だ。<br>
+      拓（TAKU）は、その政策形成プロセスから若者が排除されている構造そのものを変えにいく。
+    </p>
+  </section>
+
+  <!-- BASIC POLICY -->
+  <div class="full-line"></div>
+  <section class="section fade-up">
+    <p class="section-label">Basic Policy</p>
+    <h2 class="section-title">団体の<em>基本方針</em></h2>
+    <div class="policy-grid">
+      <div class="policy-card">
+        <div class="policy-accent-line"></div>
+        <div class="policy-num">01</div>
+        <h3 class="policy-title">機会格差の解消</h3>
+        <p class="policy-text">政治参加は、意識の高い一部の若者だけのものではない。どんな背景を持つ若者にも開かれた場をつくる。「構造の問題」として捉え、制度から変える。</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-accent-line"></div>
+        <div class="policy-num">02</div>
+        <h3 class="policy-title">エビデンスに基づく政策形成</h3>
+        <p class="policy-text">「なんとなくこう思う」ではなく、データと構造分析をもとに提言する。若者だからと言い訳せず、本物の課題に本気で向き合う。</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-accent-line"></div>
+        <div class="policy-num">03</div>
+        <h3 class="policy-title">声を届けにくい立場への眼差し</h3>
+        <p class="policy-text">政治から最も遠い場所にいる人たちを、議論の中心に置く。声を届けられない人の代わりに声を上げる意識を、すべての活動の軸に据える。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTS -->
+  <div class="full-line"></div>
+  <section class="section fade-up">
+    <p class="section-label">Departments</p>
+    <h2 class="section-title">3つの<em>専門部署</em></h2>
+    <div class="dept-overview">
+
+      <a href="dept-seisaku.html" class="dept-card seisaku fade-up fade-up-d1">
+        <div class="dept-card-bar"></div>
+        <div class="dept-card-top">
+          <span class="dept-card-tag">政治参加の格差</span>
+          <h3 class="dept-card-name">議会政策部</h3>
+          <p class="dept-card-en">Parliamentary Policy</p>
+          <p class="dept-card-mission">若者が政策を自分の言葉で考え、議員に直接届ける場をつくる。関西ユース政策フォーラムを旗艦事業として運営する。</p>
+        </div>
+        <div class="dept-card-footer">詳細を見る</div>
+      </a>
+
+      <a href="dept-kyoiku.html" class="dept-card kyoiku fade-up fade-up-d2">
+        <div class="dept-card-bar"></div>
+        <div class="dept-card-top">
+          <span class="dept-card-tag">教育機会の格差</span>
+          <h3 class="dept-card-name">教育アクセス部</h3>
+          <p class="dept-card-en">Education Access</p>
+          <p class="dept-card-mission">教育機会の格差をデータで可視化し、給付型奨学金や学校外教育支援の政策提言につなげる。</p>
+        </div>
+        <div class="dept-card-footer">詳細を見る</div>
+      </a>
+
+      <a href="dept-kagaku.html" class="dept-card kagaku fade-up fade-up-d3">
+        <div class="dept-card-bar"></div>
+        <div class="dept-card-top">
+          <span class="dept-card-tag">科学技術へのアクセス格差</span>
+          <h3 class="dept-card-name">医療・科学部</h3>
+          <p class="dept-card-en">Medical &amp; Science</p>
+          <p class="dept-card-mission">NIRSを活用して医療・リハビリ格差の実態をエビデンスで示し、政策に結びつける。拓全体のエビデンス基盤として機能する。</p>
+        </div>
+        <div class="dept-card-footer">詳細を見る</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONVERGENCE -->
+  <section class="convergence-section fade-up">
+    <div class="convergence-inner">
+      <p class="section-label" style="justify-content:center;">Joint Event</p>
+      <h2 class="convergence-title">3部署は独立して動き、<br>年1〜2回、一堂に集まる。</h2>
+      <p class="convergence-body">
+        それぞれの専門性で掘り続けた問いと提言を持ち寄り、<br>
+        <strong>議会・社会に向けて一本の声として届ける。</strong><br>
+        専門性が重なるからこそ、提言に厚みと説得力が生まれる。
+      </p>
+
+      <svg class="converge-svg" viewBox="0 0 640 64" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#c0392b" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#c0392b" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2e7d55" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#c0392b" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="g3" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2c5f9e" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#c0392b" stop-opacity="1"/>
+          </linearGradient>
+        </defs>
+        <line x1="107" y1="0" x2="320" y2="64" stroke="url(#g1)" stroke-width="1"/>
+        <line x1="320" y1="0" x2="320" y2="64" stroke="url(#g2)" stroke-width="1"/>
+        <line x1="533" y1="0" x2="320" y2="64" stroke="url(#g3)" stroke-width="1"/>
+        <circle cx="107" cy="0" r="3" fill="#c0392b" opacity="0.4"/>
+        <circle cx="320" cy="0" r="3" fill="#2e7d55" opacity="0.4"/>
+        <circle cx="533" cy="0" r="3" fill="#2c5f9e" opacity="0.4"/>
+        <circle cx="320" cy="64" r="5" fill="#c0392b"/>
+      </svg>
+
+      <div style="margin: 0 0 52px; text-align:center; font-size:10px; letter-spacing:0.35em; color:rgba(255,255,255,0.25); font-family:'Inter',sans-serif; padding-top:16px;">
+        合同政策提言イベント  —  2026年8月  大阪府議会
+      </div>
+
+      <div class="conv-stats">
+        <div class="conv-stat">
+          <div class="conv-stat-num">3</div>
+          <div class="conv-stat-label">専門部署</div>
+        </div>
+        <div class="conv-stat">
+          <div class="conv-stat-num">1—2</div>
+          <div class="conv-stat-label">回 / 年</div>
+        </div>
+        <div class="conv-stat">
+          <div class="conv-stat-num">1</div>
+          <div class="conv-stat-label">つの声</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERS -->
+  <div class="full-line"></div>
+  <section class="section fade-up">
+    <p class="section-label">Members</p>
+    <h2 class="section-title"><em>メンバー紹介</em></h2>
+
+    <div class="members-section-inner">
+
+      <!-- 左：ステージ写真パネル -->
+      <div class="member-visual">
+        <img class="member-photo" src="stage.jpg" alt="小松澤 拓登 登壇" />
+        <div class="member-visual-text">
+          <p class="member-role">Founder &amp; President</p>
+          <h3 class="member-name-ja">小松澤 拓登</h3>
+          <p class="member-name-en">KOMATSUZAWA TAKATO</p>
+        </div>
+      </div>
+
+      <!-- 右：詳細パネル -->
+      <div class="member-detail">
+
+        <div class="member-portrait-row">
+          <img class="member-portrait" src="takato.png" alt="小松澤 拓登" />
+          <div class="member-portrait-meta">
+            <p class="member-role" style="color:var(--shu); font-size:9px; letter-spacing:0.45em; font-family:'Inter',sans-serif; margin-bottom:6px;">代表 / Founder</p>
+            <p style="font-family:'Noto Serif JP',serif; font-size:18px; font-weight:700; letter-spacing:0.1em; margin-bottom:4px;">小松澤 拓登</p>
+            <p style="font-size:9px; letter-spacing:0.3em; color:var(--ink-muted); font-family:'Inter',sans-serif;">KOMATSUZAWA TAKATO</p>
+          </div>
+        </div>
+
+        <div class="member-detail-block">
+          <h4>受賞歴</h4>
+          <div class="award-list">
+            <div class="award-item">
+              <div class="award-name">
+                ナレッジイノベーションアワード
+              </div>
+              <span class="award-prize">優秀賞</span>
+            </div>
+            <div class="award-item">
+              <div class="award-name">
+                Photonics Challenge
+                <span class="award-org-tag">学生アイデア部門</span>
+              </div>
+              <span class="award-prize">ファイナリスト</span>
+            </div>
+            <div class="award-item">
+              <div class="award-name">
+                Hackable KURE
+                <span class="award-org-tag">呉市主催</span>
+              </div>
+              <span class="award-prize">アイデア賞</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-detail-block">
+          <h4>一緒に動く仲間を募集中</h4>
+          <p style="font-size:14px; line-height:2; color:var(--ink-light); font-weight:300; margin-bottom:28px;">
+            政治リテラシーも経験も問わない。<br>
+            「社会が気になる」という気持ちだけを持って来てほしい。
+          </p>
+          <a href="join.html" class="member-cta">参加登録する</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 代表からの言葉 -->
+  <div class="full-line"></div>
+  <section class="founders-word-section fade-up">
+    <div class="founders-word-inner">
+      <p class="section-label" style="color:rgba(255,255,255,0.35);">
+        <span style="display:inline-flex;align-items:center;gap:10px;">
+          Founder's Message
+          <span style="display:inline-block;width:28px;height:1px;background:rgba(255,255,255,0.15);"></span>
+        </span>
+      </p>
+      <h2 class="founders-word-title">代表からの<em>言葉</em></h2>
+      <div class="founders-word-body">
+        <p class="founders-quote-lead">法律は、誰かの「当たり前」を守るためにある。<br>だが今、その法律を作る場に若者はいない。</p>
+        <p class="founders-quote-body">
+          法学を学ぼうとしている人に、伝えたいことがある。<br>
+          六法を読む前に、その法律が誰の現実を変えてきたかを知ってほしい。<br>
+          条文の向こう側にある——医療格差で機会を奪われた子ども、<br>
+          声を届けられないまま日本に暮らす難民、<br>
+          制度の外に置かれた若者たちの存在を。
+        </p>
+        <p class="founders-quote-body">
+          拓は、その問いを「授業の外」で本気で考える場だ。<br>
+          議員と向き合い、エビデンスを積み上げ、<br>
+          採択された提言を議会に届ける——その一連のプロセスが、<br>
+          教室では学べない「法と政策の実践」だと思っている。
+        </p>
+        <p class="founders-quote-final">
+          熱意さえあれば、経験は問わない。<br>
+          社会を変えたいという気持ちを、一緒に形にしよう。
+        </p>
+        <div class="founders-word-sig">
+          <span class="founders-sig-name">小松澤 拓登</span>
+          <span class="founders-sig-role">学生団体 拓 / TAKU  代表</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <div class="full-line"></div>
+  <section class="section fade-up">
+    <p class="section-label">Roadmap</p>
+    <h2 class="section-title">フェーズ別<em>目標</em></h2>
+    <div class="roadmap">
+      <div class="roadmap-item">
+        <div class="roadmap-phase">Phase 1</div>
+        <div class="roadmap-text">
+          <h4>団体設立・初回イベント開催</h4>
+          <p>関西ユース政策フォーラム2026 / 〜2026年末</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-phase">Phase 2</div>
+        <div class="roadmap-text">
+          <h4>定期イベント化・メンバー20名超</h4>
+          <p>SNSフォロワー1,000人 / 〜1年</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-phase">Phase 3</div>
+        <div class="roadmap-text">
+          <h4>他大学・他都市との連携</h4>
+          <p>複数テーマでの提言実績 / 〜2〜3年</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-phase">Phase 4</div>
+        <div class="roadmap-text">
+          <h4>日本最大の若者政策参加プラットフォームへ</h4>
+          <p>長期目標</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-logo">拓 / TAKU</div>
+    <p class="footer-copy">© 2025 TAKU — 学生団体 拓. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

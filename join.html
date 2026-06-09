@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>参加登録 — 拓 / TAKU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ===================== PAGE HERO ===================== */
+    .join-hero {
+      padding: clamp(80px, 14vw, 160px) clamp(24px, 6vw, 80px) clamp(60px, 8vw, 80px);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .join-hero::after {
+      content: '拓';
+      position: absolute;
+      right: -2vw; bottom: -8vw;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 900;
+      font-size: clamp(200px, 28vw, 380px);
+      color: rgba(28,26,22,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .join-hero-inner {
+      max-width: 680px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .join-hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(32px, 5.5vw, 60px);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .join-hero h1 em { font-style: normal; color: var(--shu); }
+
+    .join-hero p {
+      font-size: clamp(13px, 1.7vw, 15px);
+      color: var(--ink-light);
+      line-height: 2;
+      font-weight: 300;
+      max-width: 480px;
+    }
+
+    /* ===================== FORM ===================== */
+    .form-section {
+      padding: clamp(64px, 10vw, 100px) clamp(24px, 6vw, 80px);
+    }
+
+    .form-inner {
+      max-width: 680px;
+    }
+
+    .form-group { margin-bottom: 30px; }
+
+    label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--ink);
+      margin-bottom: 10px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    label .req { color: var(--shu); margin-left: 3px; }
+    label .opt { color: var(--ink-muted); font-size: 9px; margin-left: 8px; font-weight: 400; letter-spacing: 0.1em; text-transform: none; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(28,26,22,0.25);
+      color: var(--ink);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 16px;
+      padding: 12px 0;
+      outline: none;
+      transition: border-color 0.25s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: var(--ink-muted); font-weight: 300; }
+    input:focus, select:focus, textarea:focus { border-bottom-color: var(--ink); }
+
+    textarea {
+      resize: none;
+      min-height: 120px;
+      border: 1px solid rgba(28,26,22,0.15);
+      padding: 14px;
+    }
+    textarea:focus { border-color: var(--ink); }
+
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231c1a16' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
+      padding-right: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(16px, 4vw, 40px);
+    }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+    /* checkbox */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 480px) { .checkbox-group { grid-template-columns: 1fr; } }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      cursor: pointer;
+      background: var(--washi);
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .checkbox-item:hover { background: var(--washi-2); }
+    .checkbox-item input[type="checkbox"] { display: none; }
+
+    .checkbox-box {
+      width: 16px; height: 16px;
+      border: 1px solid rgba(28,26,22,0.3);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .checkbox-item input:checked ~ .checkbox-box { background: var(--ink); border-color: var(--ink); }
+    .checkbox-item input:checked ~ .checkbox-box::after {
+      content: '';
+      display: block;
+      width: 9px; height: 5px;
+      border-left: 1.5px solid var(--washi);
+      border-bottom: 1.5px solid var(--washi);
+      transform: rotate(-45deg) translateY(-1px);
+    }
+    .checkbox-label { font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+    /* radio */
+    .radio-group { display: flex; flex-direction: column; gap: 2px; background: var(--line); border: 1px solid var(--line); }
+
+    .radio-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px 20px;
+      cursor: pointer; background: var(--washi);
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .radio-item:hover { background: var(--washi-2); }
+    .radio-item input[type="radio"] { display: none; }
+
+    .radio-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(28,26,22,0.3);
+      flex-shrink: 0;
+      margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s;
+    }
+    .radio-item input:checked ~ .radio-dot { border-color: var(--shu); }
+    .radio-item input:checked ~ .radio-dot::after {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%; background: var(--shu);
+    }
+
+    .radio-content { display: flex; flex-direction: column; gap: 3px; }
+    .radio-label { font-size: 14px; color: var(--ink); font-weight: 500; }
+    .radio-desc  { font-size: 11px; color: var(--ink-muted); font-weight: 300; line-height: 1.6; }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      line-height: 1.7;
+    }
+
+    /* section divider within form */
+    .form-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 48px 0 32px;
+    }
+    .form-divider span {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+    .form-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--line);
+    }
+
+    /* submit */
+    .submit-wrap { margin-top: 56px; }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      background: var(--ink);
+      color: var(--washi);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      padding: 22px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: background 0.25s;
+      text-align: center;
+    }
+    .submit-btn:hover { background: #2e2a22; }
+
+    .submit-note {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- ======== NAV ======== -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">拓 <span>TAKU</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="structure.html" class="nav-hide">組織構成</a></li>
+      <li><a href="join.html" class="nav-join active">参加登録</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="join-hero">
+    <div class="join-hero-inner">
+      <p class="section-label" style="margin-bottom:20px;">Join Us</p>
+      <h1>拓（TAKU）に<br><em>参加する</em></h1>
+      <p>政治リテラシーも経験も問いません。<br>「気になる」という気持ちが、最初の一歩です。</p>
+    </div>
+  </section>
+
+  <!-- ======== FORM ======== -->
+  <section class="form-section">
+    <div class="form-inner fade-up">
+      <form action="#" method="POST" id="taku-form">
+
+        <!-- 基本情報 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name-sei">姓<span class="req">*</span></label>
+            <input type="text" id="name-sei" name="name_sei" placeholder="山田" required />
+          </div>
+          <div class="form-group">
+            <label for="name-mei">名<span class="req">*</span></label>
+            <input type="text" id="name-mei" name="name_mei" placeholder="太郎" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="kana-sei">セイ<span class="req">*</span></label>
+            <input type="text" id="kana-sei" name="kana_sei" placeholder="ヤマダ" required />
+          </div>
+          <div class="form-group">
+            <label for="kana-mei">メイ<span class="req">*</span></label>
+            <input type="text" id="kana-mei" name="kana_mei" placeholder="タロウ" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">メールアドレス<span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="taku@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="tel">電話番号<span class="opt">任意</span></label>
+          <input type="tel" id="tel" name="tel" placeholder="090-0000-0000" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="school">学校名<span class="req">*</span></label>
+            <input type="text" id="school" name="school" placeholder="○○大学" required />
+          </div>
+          <div class="form-group">
+            <label for="grade">学年<span class="req">*</span></label>
+            <select id="grade" name="grade" required>
+              <option value="" disabled selected>選択</option>
+              <option>中学1年</option><option>中学2年</option><option>中学3年</option>
+              <option>高校1年</option><option>高校2年</option><option>高校3年</option>
+              <option>大学1年</option><option>大学2年</option><option>大学3年</option>
+              <option>大学4年</option><option>大学院生</option><option>その他</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 関心・参加形態 -->
+        <div class="form-divider"><span>関心・参加形態</span></div>
+
+        <div class="form-group">
+          <label>関心のある社会課題<span class="opt">複数選択可</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="theme" value="education"/><span class="checkbox-box"></span><span class="checkbox-label">教育格差</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="theme" value="medical"/><span class="checkbox-box"></span><span class="checkbox-label">医療・スポーツ</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="theme" value="tech"/><span class="checkbox-box"></span><span class="checkbox-label">科学技術へのアクセス</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="theme" value="refugee"/><span class="checkbox-box"></span><span class="checkbox-label">難民・移民</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="theme" value="politics"/><span class="checkbox-box"></span><span class="checkbox-label">若者の政治参加</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="theme" value="other"/><span class="checkbox-box"></span><span class="checkbox-label">その他</span></label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:32px;">
+          <label>希望する関わり方<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="role" value="core" required/>
+              <span class="radio-dot"></span>
+              <span class="radio-content">
+                <span class="radio-label">コアメンバー（運営参加）</span>
+                <span class="radio-desc">企画・運営・提言書作成まで本格的に関わりたい</span>
+              </span>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="role" value="event"/>
+              <span class="radio-dot"></span>
+              <span class="radio-content">
+                <span class="radio-label">イベント参加のみ</span>
+                <span class="radio-desc">フォーラムやワークショップに参加者として関わりたい</span>
+              </span>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="role" value="supporter"/>
+              <span class="radio-dot"></span>
+              <span class="radio-content">
+                <span class="radio-label">サポーター（情報受け取り）</span>
+                <span class="radio-desc">まずは活動情報を受け取りながら検討したい</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- その他 -->
+        <div class="form-divider"><span>その他</span></div>
+
+        <div class="form-group">
+          <label for="source">拓（TAKU）を知ったきっかけ<span class="opt">任意</span></label>
+          <select id="source" name="source">
+            <option value="" disabled selected>選択してください</option>
+            <option>Instagram</option>
+            <option>X（Twitter）</option>
+            <option>友人・知人の紹介</option>
+            <option>イベント・学校</option>
+            <option>その他のSNS</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">参加への想い・一言<span class="opt">任意</span></label>
+          <textarea id="message" name="message" placeholder="社会課題への関心、参加の動機、質問など自由に書いてください。"></textarea>
+          <p class="form-note">記入いただいた内容は団体運営の参考にします。選考には影響しません。</p>
+        </div>
+
+        <div class="submit-wrap">
+          <button type="submit" class="submit-btn">参加登録を送信する</button>
+          <p class="submit-note">送信後、3営業日以内にご連絡いたします</p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="footer-logo">拓 / TAKU</div>
+    <p class="footer-copy">© 2026 TAKU — 学生団体 拓. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    document.getElementById('taku-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.submit-btn');
+      btn.textContent = '送信完了しました';
+      btn.style.background = '#2d5a3d';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>

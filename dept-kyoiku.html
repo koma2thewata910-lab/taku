@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>教育アクセス部 — 拓 / TAKU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root { --dept-color: var(--col-kyoiku); }
+
+    .act-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 64px; }
+    .act-item {
+      background: var(--washi);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      padding: 32px 28px;
+      align-items: start;
+      transition: background 0.25s;
+    }
+    .act-item:hover { background: var(--washi-2); }
+    .act-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 0.3em;
+      color: var(--dept-color); font-weight: 600;
+      padding-top: 3px; white-space: nowrap;
+    }
+    .act-body h4 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(16px, 1.8vw, 19px);
+      font-weight: 700; margin-bottom: 10px; letter-spacing: 0.04em;
+    }
+    .act-body p { font-size: 13px; color: var(--ink-light); line-height: 1.9; font-weight: 300; }
+
+    .connect-block {
+      border-left: 3px solid var(--dept-color);
+      padding: 24px 28px;
+      background: var(--washi-2);
+      margin-bottom: 64px;
+    }
+    .connect-block p { font-size: 15px; line-height: 1.95; color: var(--ink-light); font-weight: 300; }
+    .connect-block strong { color: var(--ink); font-weight: 500; }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 64px;
+    }
+    .data-item {
+      background: var(--washi);
+      padding: 28px 24px;
+    }
+    .data-label { font-size: 10px; letter-spacing: 0.25em; color: var(--ink-muted); font-family: 'Inter', sans-serif; margin-bottom: 10px; }
+    .data-value {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(13px, 1.6vw, 15px);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: 0.2em;
+      color: var(--ink-muted); text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.2s;
+      margin-bottom: 40px;
+    }
+    .back-link::before { content: '←'; font-size: 13px; }
+    .back-link:hover { color: var(--ink); }
+
+    .cta-strip {
+      background: var(--dept-color);
+      color: #fff;
+      padding: clamp(40px,6vw,64px) clamp(28px,5vw,56px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cta-strip h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px,2.5vw,26px);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .cta-strip p { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 300; }
+    .cta-strip a {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #fff; font-size: 11px; letter-spacing: 0.22em;
+      padding: 14px 28px; text-decoration: none; white-space: nowrap;
+      font-family: 'Noto Sans JP', sans-serif; transition: background 0.2s;
+    }
+    .cta-strip a:hover { background: rgba(255,255,255,0.12); }
+  </style>
+</head>
+<body class="page-body">
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">拓 <span>TAKU</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dept-group">
+        <a href="dept-seisaku.html" class="dept-s">政策提言部</a>
+        <a href="dept-kyoiku.html"  class="dept-k active">教育アクセス部</a>
+        <a href="dept-kagaku.html"  class="dept-g">医療・科学部</a>
+      </li>
+      <li><a href="join.html" class="nav-join">参加登録</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="dept-page-hero" data-kanji="育">
+    <div class="dept-page-hero-inner">
+      <div class="dept-color-bar" style="background: var(--col-kyoiku);"></div>
+      <p class="dept-en">Education Access Department</p>
+      <span class="dept-theme-tag">教育機会の格差</span>
+      <h1>教育アクセス部</h1>
+      <p class="mission" style="color: var(--col-kyoiku);">
+        教育機会の格差をデータで可視化し、<br>政策提言につなげる。
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="section">
+    <a href="index.html#about" class="back-link">団体トップへ戻る</a>
+
+    <!-- 部署方針 -->
+    <div class="fade-up">
+      <p class="section-label">Department Policy</p>
+      <h2 class="section-title">この部署の<em>方針</em></h2>
+      <p class="body-text" style="margin-bottom: 32px;">
+        学力格差や不登校は「個人の努力や意識の問題」ではない。<br>
+        背景にあるのは<strong>教育機会の不均等な配分</strong>という構造的問題だ。<br><br>
+        教育アクセス部は、その実態をデータで可視化し、証拠に基づいた政策提言へとつなげる。<br>
+        感情論ではなく、数字と構造分析で教育格差に向き合う。
+      </p>
+      <div class="connect-block">
+        <p>法律・政策が「どんな教育機会を誰に保障するか」を決める。<br>
+        給付型奨学金の拡充、学校外教育支援の整備——<strong>制度を変えることが根本的な解決</strong>になる。<br>
+        この部署は、そのための言語と証拠をつくる。</p>
+      </div>
+    </div>
+
+    <!-- 対象課題 -->
+    <div class="fade-up">
+      <p class="section-label">Focus Areas</p>
+      <h2 class="section-title">対象とする<em>課題領域</em></h2>
+      <div class="data-grid">
+        <div class="data-item">
+          <div class="data-label">Issue 01</div>
+          <div class="data-value">学力格差・<br>不登校問題</div>
+        </div>
+        <div class="data-item">
+          <div class="data-label">Issue 02</div>
+          <div class="data-value">給付型奨学金の<br>不十分な整備</div>
+        </div>
+        <div class="data-item">
+          <div class="data-label">Issue 03</div>
+          <div class="data-value">学校外教育への<br>アクセス格差</div>
+        </div>
+        <div class="data-item">
+          <div class="data-label">Issue 04</div>
+          <div class="data-value">家庭環境による<br>進路機会の差</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活動内容 -->
+    <div class="fade-up">
+      <p class="section-label">Activities</p>
+      <h2 class="section-title">主な<em>活動内容</em></h2>
+      <div class="act-list">
+        <div class="act-item">
+          <div class="act-num">ACT. 01</div>
+          <div class="act-body">
+            <h4>教育格差・不登校の実態調査・データ収集</h4>
+            <p>文部科学省・内閣府の統計データをもとに、地域別・所得別の教育格差を可視化する。現場の声を収集するためのヒアリング・アンケートも実施する。</p>
+          </div>
+        </div>
+        <div class="act-item">
+          <div class="act-num">ACT. 02</div>
+          <div class="act-body">
+            <h4>学習支援ボランティアの企画・連携</h4>
+            <p>NPOや地域団体と連携した学習支援活動を企画する。単なるボランティアに留まらず、現場で得た実態をデータとして政策提言に還元するサイクルをつくる。</p>
+          </div>
+        </div>
+        <div class="act-item">
+          <div class="act-num">ACT. 03</div>
+          <div class="act-body">
+            <h4>教育政策への提言書作成</h4>
+            <p>給付型奨学金の拡充・学校外教育支援の制度整備を中心に、エビデンスに基づく提言書を作成する。合同イベントを通じて議会・社会に届ける。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-strip fade-up">
+      <div>
+        <h3>教育格差に、データで向き合う。</h3>
+        <p>この部署での活動に興味のある方はこちらから</p>
+      </div>
+      <a href="join.html">参加登録する</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logo">拓 / TAKU</div>
+    <p class="footer-copy">© 2026 TAKU — 学生団体 拓. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
