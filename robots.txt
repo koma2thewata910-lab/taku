@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://koma2thewata910-lab.github.io/taku/sitemap.xml
