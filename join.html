@@ -287,7 +287,7 @@
   <!-- ======== FORM ======== -->
   <section class="form-section">
     <div class="form-inner fade-up">
-      <form action="#" method="POST" id="taku-form">
+      <form action="https://formspree.io/f/xnjyvpgj" method="POST" id="taku-form">
 
         <!-- 基本情報 -->
         <div class="form-row">
@@ -428,10 +428,8 @@
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
     document.getElementById('taku-form').addEventListener('submit', function(e) {
-      e.preventDefault();
       const btn = this.querySelector('.submit-btn');
-      btn.textContent = '送信完了しました';
-      btn.style.background = '#2d5a3d';
+      btn.textContent = '送信中...';
       btn.disabled = true;
     });
   </script>
