@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>組織構成 — 拓 / TAKU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ===================== PAGE HERO ===================== */
+    .page-hero {
+      background: var(--ink);
+      color: var(--washi);
+      padding: clamp(80px, 14vw, 160px) clamp(24px, 6vw, 80px) clamp(60px, 10vw, 120px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* large background kanji */
+    .page-hero::after {
+      content: '拓';
+      position: absolute;
+      right: -2vw;
+      bottom: -8vw;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 900;
+      font-size: clamp(200px, 30vw, 400px);
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .page-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .section-label { color: rgba(255,255,255,0.4); }
+    .page-hero .section-label::after { background: rgba(255,255,255,0.2); }
+
+    .page-hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(32px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.06em;
+      max-width: 800px;
+    }
+
+    .page-hero h1 em {
+      font-style: normal;
+      color: var(--shu);
+    }
+
+    .page-hero-sub {
+      margin-top: 24px;
+      font-size: clamp(13px, 1.8vw, 16px);
+      color: rgba(255,255,255,0.5);
+      line-height: 2;
+      max-width: 600px;
+      font-weight: 300;
+    }
+
+    /* ===================== DIAGRAM ===================== */
+    .diagram-section {
+      padding: clamp(64px, 10vw, 100px) clamp(24px, 6vw, 80px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ---- 3 dept cards ---- */
+    .dept-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    @media (max-width: 800px) {
+      .dept-row { grid-template-columns: 1fr; }
+    }
+
+    .dept-card {
+      background: var(--washi);
+      padding: 40px 32px;
+      border-top: 3px solid var(--line);
+      transition: background 0.3s;
+    }
+    .dept-card:hover { background: var(--washi-2); }
+
+    .dept-card.dept-seisaku { border-top-color: var(--shu); }
+    .dept-card.dept-kyoiku  { border-top-color: #3a7d5a; }
+    .dept-card.dept-kagaku  { border-top-color: #3a64a8; }
+
+    .dept-tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .dept-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 2.2vw, 24px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .dept-theme {
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .dept-mission {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--ink-light);
+      margin-bottom: 28px;
+      font-weight: 300;
+      border-left: 2px solid var(--line);
+      padding-left: 16px;
+    }
+
+    .dept-acts-title {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .dept-acts {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .dept-acts li {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--ink-light);
+      padding-left: 16px;
+      position: relative;
+      font-weight: 300;
+    }
+
+    .dept-acts li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px;
+      width: 6px; height: 1px;
+      background: var(--ink-muted);
+    }
+
+    .dept-acts li strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .dept-connect {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      font-size: 12px;
+      line-height: 1.85;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+
+    /* ---- convergence ---- */
+    .converge-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .converge-svg {
+      width: 100%;
+      max-width: 100%;
+      height: clamp(60px, 8vw, 100px);
+      display: block;
+    }
+
+    /* ---- joint event ---- */
+    .joint-card {
+      width: 100%;
+      background: var(--ink);
+      color: var(--washi);
+      padding: clamp(48px, 7vw, 80px) clamp(32px, 6vw, 80px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .joint-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 20px,
+        rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px
+      );
+    }
+
+    .joint-year {
+      position: absolute;
+      top: 24px; right: 28px;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.3);
+      font-family: 'Inter', sans-serif;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 6px 14px;
+    }
+
+    .joint-label {
+      font-size: 10px;
+      letter-spacing: 0.45em;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+
+    .joint-rule {
+      width: 40px; height: 1px;
+      background: var(--shu);
+      margin: 0 auto 24px;
+      position: relative; z-index: 1;
+    }
+
+    .joint-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      position: relative; z-index: 1;
+    }
+
+    .joint-body {
+      font-size: clamp(13px, 1.6vw, 15px);
+      color: rgba(255,255,255,0.6);
+      line-height: 2;
+      max-width: 560px;
+      font-weight: 300;
+      position: relative; z-index: 1;
+    }
+
+    .joint-body strong {
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    .joint-accent {
+      margin-top: 36px;
+      display: flex;
+      gap: 32px;
+      position: relative; z-index: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .joint-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .joint-stat-num {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 300;
+      color: var(--shu);
+      line-height: 1;
+    }
+
+    .joint-stat-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.35);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* first event highlight */
+    .first-event {
+      margin-top: 60px;
+      border: 1px solid var(--line);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 600px) {
+      .first-event { grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    .first-event-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--shu);
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+
+    .first-event-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .first-event-desc {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- ======== NAV ======== -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">拓 <span>TAKU</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="structure.html" class="active">組織構成</a></li>
+      <li><a href="join.html" class="nav-join">参加登録</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======== PAGE HERO ======== -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label">Structure</p>
+      <h1>3つの専門部署が、<br><em>ひとつの声</em>になる。</h1>
+      <p class="page-hero-sub">
+        各部署は普段、独立して自分の「格差」に向き合い続ける。<br>
+        唯一の接点は、年1〜2回の合同政策提言イベントだ。
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== DEPT CARDS + DIAGRAM ======== -->
+  <section class="diagram-section fade-up">
+
+    <div class="dept-row">
+
+      <!-- 議会政策部 -->
+      <div class="dept-card dept-seisaku">
+        <span class="dept-tag">政治参加の格差</span>
+        <h2 class="dept-name">議会政策部</h2>
+        <p class="dept-theme">Political Participation</p>
+        <p class="dept-mission">若者が政策を自分の言葉で考え、議員に直接届ける場をつくる。</p>
+        <p class="dept-acts-title">主な活動</p>
+        <ul class="dept-acts">
+          <li>関西ユース政策フォーラムの企画・運営（フラッグシップ事業）</li>
+          <li>政策討論ワークショップ（月1〜2回）</li>
+          <li>採択提言の議会への正式提出</li>
+        </ul>
+        <p class="dept-connect">法律・政策は「誰に機会を保障するか」を決める仕組みだ。若者がそのプロセスから排除されている構造を、この部署が直接変えにいく。</p>
+      </div>
+
+      <!-- 教育アクセス部 -->
+      <div class="dept-card dept-kyoiku">
+        <span class="dept-tag">教育機会の格差</span>
+        <h2 class="dept-name">教育アクセス部</h2>
+        <p class="dept-theme">Education Access</p>
+        <p class="dept-mission">教育機会の格差をデータで可視化し、政策提言につなげる。</p>
+        <p class="dept-acts-title">主な活動</p>
+        <ul class="dept-acts">
+          <li>教育格差・不登校の実態調査・データ収集</li>
+          <li>学習支援ボランティアの企画・連携</li>
+          <li>給付型奨学金・学校外教育支援への提言書作成</li>
+        </ul>
+        <p class="dept-connect">学力格差や不登校の背景には「教育機会の不均等な配分」がある。制度を変えることが根本的な解決になる。</p>
+      </div>
+
+      <!-- 医療・科学部 -->
+      <div class="dept-card dept-kagaku">
+        <span class="dept-tag">科学技術へのアクセス格差</span>
+        <h2 class="dept-name">医療・科学部</h2>
+        <p class="dept-theme">Medical &amp; Science</p>
+        <p class="dept-mission">NIRSをはじめとする科学技術を活用し、医療・リハビリ格差の実態をエビデンスで示し、政策に結びつける。拓全体の「エビデンス基盤」として機能する。</p>
+        <p class="dept-acts-title">主な活動</p>
+        <ul class="dept-acts">
+          <li>
+            <strong>NIRSによるリハビリ評価研究</strong>
+            脳・筋肉の酸素動態を非侵襲的に計測し、リハビリ効果を数値化。競技継続が困難な選手・障害者のリハビリ格差を可視化。
+          </li>
+          <li>
+            <strong>FUKKIプロジェクト</strong>
+            光吸収の残差解析による測定手法の高度化。科学的エビデンス構築の基盤技術として位置づける。
+          </li>
+          <li>保険適用・普及支援制度整備への政策提言</li>
+        </ul>
+        <p class="dept-connect">最先端の計測・リハビリ技術は、資金力のある施設にしか届いていない。この格差を数値で証明し、制度改正を求める。</p>
+      </div>
+
+    </div><!-- /dept-row -->
+
+    <!-- convergence SVG -->
+    <div class="converge-wrap">
+      <svg class="converge-svg" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#c0392b" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#c0392b" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3a7d5a" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#c0392b" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="g3" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3a64a8" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#c0392b" stop-opacity="1"/>
+          </linearGradient>
+        </defs>
+        <line x1="167"  y1="0" x2="500" y2="80" stroke="url(#g1)" stroke-width="1.5"/>
+        <line x1="500"  y1="0" x2="500" y2="80" stroke="url(#g2)" stroke-width="1.5"/>
+        <line x1="833"  y1="0" x2="500" y2="80" stroke="url(#g3)" stroke-width="1.5"/>
+        <circle cx="167" cy="0" r="4" fill="#c0392b" opacity="0.5"/>
+        <circle cx="500" cy="0" r="4" fill="#3a7d5a" opacity="0.5"/>
+        <circle cx="833" cy="0" r="4" fill="#3a64a8" opacity="0.5"/>
+        <circle cx="500" cy="80" r="5" fill="#c0392b"/>
+      </svg>
+
+      <!-- joint event -->
+      <div class="joint-card">
+        <div class="joint-year">年1〜2回</div>
+        <p class="joint-label">Joint Policy Forum</p>
+        <div class="joint-rule"></div>
+        <h2 class="joint-title">合同政策提言イベント</h2>
+        <p class="joint-body">
+          3部署はそれぞれの「格差」に独立して向き合い続け、<br>
+          年1〜2回の合同イベントでのみ一堂に集まる。<br>
+          各部署が自分の分野で掘り続けた問いと提言を持ち寄り、<br>
+          <strong>議会・社会に向けて一本の声として届ける。</strong><br>
+          それぞれの専門性が重なるからこそ、提言に厚みと説得力が生まれる。
+        </p>
+        <div class="joint-accent">
+          <div class="joint-stat">
+            <span class="joint-stat-num">3</span>
+            <span class="joint-stat-label">専門部署</span>
+          </div>
+          <div class="joint-stat">
+            <span class="joint-stat-num">1〜2</span>
+            <span class="joint-stat-label">回 / 年</span>
+          </div>
+          <div class="joint-stat">
+            <span class="joint-stat-num">1</span>
+            <span class="joint-stat-label">つの声</span>
+          </div>
+        </div>
+      </div>
+    </div><!-- /converge-wrap -->
+
+    <!-- first event -->
+    <div class="first-event fade-up">
+      <div class="first-event-date">Aug. 2026</div>
+      <div>
+        <h3 class="first-event-title">関西ユース政策フォーラム 2026</h3>
+        <p class="first-event-desc">大阪府議会にて開催予定。第一回合同政策提言イベントとして、3部署が初めて一堂に集まる。若者が議員と直接対話し、採択された提言を議会へ正式提出する。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="footer-logo">拓 / TAKU</div>
+    <p class="footer-copy">© 2026 TAKU — 学生団体 拓. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
