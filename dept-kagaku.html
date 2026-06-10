@@ -115,6 +115,76 @@
     }
     .evidence-role strong { color: rgba(255,255,255,0.9); font-weight: 400; }
 
+    /* NEWS */
+    .news-block { margin-bottom: 64px; }
+    .news-item {
+      border: 1px solid var(--line);
+      background: var(--washi);
+    }
+    .news-item-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 20px 28px 0;
+    }
+    .news-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 0.3em;
+      color: var(--ink-muted); font-weight: 600;
+    }
+    .news-tag {
+      font-size: 9px; letter-spacing: 0.25em;
+      color: var(--dept-color);
+      border: 1px solid rgba(44,95,158,0.3);
+      padding: 2px 10px;
+      font-family: 'Inter', sans-serif;
+    }
+    .news-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(15px, 1.8vw, 18px);
+      font-weight: 700; letter-spacing: 0.04em;
+      line-height: 1.6; padding: 16px 28px 0;
+    }
+    .news-research-box {
+      margin: 20px 28px;
+      background: rgba(44,95,158,0.03);
+      border-left: 3px solid var(--dept-color);
+      padding: 20px 24px;
+    }
+    .news-research-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; letter-spacing: 0.05em;
+      color: var(--dept-color); font-weight: 600;
+      margin-bottom: 6px; line-height: 1.6;
+    }
+    .news-research-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px; font-weight: 700;
+      margin-bottom: 14px; line-height: 1.6;
+    }
+    .news-research-body {
+      font-size: 12px; color: var(--ink-light);
+      line-height: 1.95; font-weight: 300;
+    }
+    .news-comment {
+      border-top: 1px solid var(--line);
+      padding: 24px 28px;
+      background: var(--washi-2);
+    }
+    .news-comment-label {
+      font-size: 9px; letter-spacing: 0.35em;
+      color: var(--ink-muted); font-family: 'Inter', sans-serif;
+      margin-bottom: 10px;
+    }
+    .news-comment-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px; line-height: 1.95;
+      color: var(--ink); font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .news-comment-sig {
+      font-size: 11px; color: var(--ink-muted);
+      font-family: 'Inter', sans-serif; letter-spacing: 0.1em;
+    }
+
     .back-link {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 11px; letter-spacing: 0.2em;
@@ -181,6 +251,28 @@
   <!-- CONTENT -->
   <section class="section">
     <a href="index.html#about" class="back-link">団体トップへ戻る</a>
+
+    <!-- NEWS -->
+    <div class="news-block fade-up">
+      <p class="section-label">News</p>
+      <div class="news-item">
+        <div class="news-item-header">
+          <span class="news-date">2026</span>
+          <span class="news-tag">口頭発表</span>
+        </div>
+        <h3 class="news-title">代表 小松澤拓登が2026年度日本分光学会年次講演会にて口頭発表を行いました</h3>
+        <div class="news-research-box">
+          <p class="news-research-en">Optical Measurement of Muscle Oxygenation Dynamics During Micro Reloading via NIRS and Its Application to Return-to-Sport Decision Support</p>
+          <p class="news-research-ja">近赤外光分光法による微小再負荷時の筋酸素動態時間応答計測と競技復帰判断への応用に関する研究</p>
+          <p class="news-research-body">骨格筋損傷（肉離れ等）からの競技復帰判断において、NIRSを用いて筋内部の酸素動態を非侵襲・リアルタイムで光学計測し、微小再負荷に対する時間応答波形から機能的回復指標を抽出・定量化する研究。肉離れの再受傷率が受傷後2年以内で14〜63%に達する現状に対し、「安静時には正常に見えるが、再負荷時に機能が破綻する潜在的障害」を客観的に検出する新たな手法を提案した。</p>
+        </div>
+        <div class="news-comment">
+          <p class="news-comment-label">代表コメント</p>
+          <p class="news-comment-text">「今回貴重な機会をいただき口頭発表させていただきました。様々なご意見やアドバイスを元に今後の研究活動に尽力していきます。」</p>
+          <p class="news-comment-sig">— 小松澤 拓登　代表 / 立教池袋高校</p>
+        </div>
+      </div>
+    </div>
 
     <!-- 部署方針 -->
     <div class="fade-up">
