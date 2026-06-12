@@ -21,6 +21,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://koma2thewata910-lab.github.io/taku/dept-nanmin.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://koma2thewata910-lab.github.io/taku/join.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>

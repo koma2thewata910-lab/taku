@@ -18,6 +18,7 @@
   --col-seisaku: #c0392b;
   --col-kyoiku:  #2e7d55;
   --col-kagaku:  #2c5f9e;
+  --col-nanmin:  #7b5ea7;
 }
 
 html { scroll-behavior: smooth; }
@@ -102,6 +103,7 @@ body {
 .nav-links a.dept-s.active::after { background: var(--col-seisaku); }
 .nav-links a.dept-k.active::after { background: var(--col-kyoiku); }
 .nav-links a.dept-g.active::after { background: var(--col-kagaku); }
+.nav-links a.dept-n.active::after { background: var(--col-nanmin); }
 
 .nav-join {
   background: var(--ink);

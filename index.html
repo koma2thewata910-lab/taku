@@ -286,10 +286,11 @@
     /* ======== DEPARTMENTS ======== */
     .dept-overview {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
-    @media (max-width: 860px) { .dept-overview { grid-template-columns: 1fr; } }
+    @media (max-width: 1100px) { .dept-overview { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .dept-overview { grid-template-columns: 1fr; } }
 
     .dept-card {
       display: flex;
@@ -315,6 +316,7 @@
     .dept-card.seisaku .dept-card-bar { background: var(--col-seisaku); }
     .dept-card.kyoiku  .dept-card-bar { background: var(--col-kyoiku); }
     .dept-card.kagaku  .dept-card-bar { background: var(--col-kagaku); }
+    .dept-card.nanmin  .dept-card-bar { background: var(--col-nanmin); }
 
     .dept-card-tag {
       font-size: 9px;
@@ -818,6 +820,7 @@
         <a href="dept-seisaku.html" class="dept-s">議会政策部</a>
         <a href="dept-kyoiku.html"  class="dept-k">教育アクセス部</a>
         <a href="dept-kagaku.html"  class="dept-g">医療・科学部</a>
+        <a href="dept-nanmin.html"  class="dept-n">難民・移民部</a>
       </li>
       <li><a href="join.html" class="nav-join">参加登録</a></li>
     </ul>
@@ -924,6 +927,17 @@
           <h3 class="dept-card-name">医療・科学部</h3>
           <p class="dept-card-en">Medical &amp; Science</p>
           <p class="dept-card-mission">NIRSを活用して医療・リハビリ格差の実態をエビデンスで示し、政策に結びつける。拓全体のエビデンス基盤として機能する。</p>
+        </div>
+        <div class="dept-card-footer">詳細を見る</div>
+      </a>
+
+      <a href="dept-nanmin.html" class="dept-card nanmin fade-up fade-up-d4">
+        <div class="dept-card-bar"></div>
+        <div class="dept-card-top">
+          <span class="dept-card-tag">制度的排除の格差</span>
+          <h3 class="dept-card-name">難民・移民部</h3>
+          <p class="dept-card-en">Refugee &amp; Migration</p>
+          <p class="dept-card-mission">当事者インタビューと政策リサーチで制度の壁を可視化し、共生社会の実現に向けた提言の土台をつくる。</p>
         </div>
         <div class="dept-card-footer">詳細を見る</div>
       </a>
