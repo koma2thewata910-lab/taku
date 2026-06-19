@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/takuto/Desktop/taku && git add -A && git diff --cached --quiet || (git commit -m 'Auto-update site content' && git push origin main)"
+          }
+        ]
+      }
+    ]
+  }
+}
