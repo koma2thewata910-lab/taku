@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>関西ユースフォーラム2026 — 拓 / TACK</title>
+  <meta name="description" content="中高生が議員と対話し、関西の未来に本気の提言を。2026年8月9日（日）11:00〜18:30開催。参加費無料。大阪・京都・兵庫・奈良・滋賀・和歌山の中学生・高校生募集中。" />
+  <meta name="author" content="学生団体 拓 / TACK" />
+  <meta property="og:title" content="関西ユースフォーラム2026 — 拓 / TACK" />
+  <meta property="og:description" content="中高生が議員と対話し、関西の未来に本気の提言を。2026年8月9日（日）開催。参加費無料。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://koma2thewata910-lab.github.io/taku/forum2026.html" />
+  <meta property="og:image" content="https://koma2thewata910-lab.github.io/taku/taku-shodo.png" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://koma2thewata910-lab.github.io/taku/forum2026.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root { --forum-red: #c0392b; }
+
+    /* HERO */
+    .forum-hero {
+      background: #1a1a1a;
+      color: #fff;
+      padding: clamp(80px, 14vw, 140px) clamp(24px, 6vw, 80px) clamp(60px, 8vw, 100px);
+      position: relative;
+      overflow: hidden;
+    }
+    .forum-hero::before {
+      content: '提言';
+      position: absolute;
+      right: -1vw; bottom: -6vw;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 900;
+      font-size: clamp(180px, 25vw, 360px);
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .forum-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 0.3em;
+      color: var(--forum-red);
+      border: 1px solid rgba(192,57,43,0.5);
+      padding: 5px 14px;
+      margin-bottom: 28px;
+    }
+    .forum-hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+    .forum-hero h1 em {
+      font-style: normal;
+      color: var(--forum-red);
+    }
+    .forum-hero-sub {
+      font-size: clamp(13px, 1.6vw, 15px);
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      position: relative; z-index: 1;
+    }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 24px;
+      position: relative; z-index: 1;
+    }
+    .hero-meta-item {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .hero-meta-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+    }
+    .hero-meta-value {
+      font-size: 14px; font-weight: 300;
+      color: rgba(255,255,255,0.85);
+    }
+    .hero-cta {
+      display: inline-block;
+      margin-top: 40px;
+      background: var(--forum-red);
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px; letter-spacing: 0.15em;
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      position: relative; z-index: 1;
+    }
+    .hero-cta:hover { opacity: 0.85; }
+
+    /* OVERVIEW GRID */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 64px;
+    }
+    @media (max-width: 700px) { .overview-grid { grid-template-columns: 1fr; } }
+    .overview-cell {
+      background: var(--washi);
+      padding: 28px 24px;
+    }
+    .overview-cell-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; letter-spacing: 0.28em;
+      color: var(--forum-red);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .overview-cell-value {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 1.5vw, 16px);
+      font-weight: 700;
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+    }
+
+    /* TOPIC CARDS */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 700px) { .topic-grid { grid-template-columns: 1fr; } }
+    .topic-card {
+      background: var(--washi);
+      border: 1px solid var(--line);
+      padding: 32px 28px;
+    }
+    .topic-badge {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; letter-spacing: 0.3em;
+      color: #fff;
+      background: var(--forum-red);
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+    .topic-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+    .topic-card p {
+      font-size: 13px; color: var(--ink-light);
+      line-height: 1.9; font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .topic-candidates {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .topic-candidates li {
+      display: flex; align-items: baseline; gap: 10px;
+      font-size: 13px; font-weight: 300; color: var(--ink);
+    }
+    .topic-candidates li::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--forum-red);
+      flex-shrink: 0;
+      position: relative; top: -1px;
+    }
+
+    /* PROGRAM TIMELINE */
+    .timetable {
+      display: flex; flex-direction: column; gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 64px;
+    }
+    .timetable-row {
+      background: var(--washi);
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0;
+    }
+    .timetable-time {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 600;
+      color: var(--forum-red);
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      letter-spacing: 0.05em;
+    }
+    .timetable-content {
+      padding: 18px 24px;
+    }
+    .timetable-content strong {
+      display: block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px; font-weight: 700;
+      margin-bottom: 4px; letter-spacing: 0.03em;
+    }
+    .timetable-content span {
+      font-size: 12px; color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    /* FLOW */
+    .flow-list {
+      display: flex; flex-direction: column; gap: 0;
+      margin-bottom: 64px;
+    }
+    .flow-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0;
+    }
+    .flow-line {
+      display: flex; flex-direction: column;
+      align-items: center;
+    }
+    .flow-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--forum-red);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .flow-bar {
+      width: 2px; flex: 1;
+      background: var(--line);
+      margin: 6px 0;
+    }
+    .flow-item:last-child .flow-bar { display: none; }
+    .flow-body {
+      padding: 0 0 32px 0;
+    }
+    .flow-step {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; letter-spacing: 0.3em;
+      color: var(--forum-red); font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .flow-body h4 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px; font-weight: 700;
+      margin-bottom: 6px; letter-spacing: 0.03em;
+    }
+    .flow-body p {
+      font-size: 13px; color: var(--ink-light);
+      font-weight: 300; line-height: 1.85;
+    }
+
+    /* SCHEDULE */
+    .schedule-row {
+      display: flex; gap: 0;
+      border: 1px solid var(--line);
+      margin-bottom: -1px;
+      background: var(--washi);
+    }
+    .schedule-month {
+      width: 80px; flex-shrink: 0;
+      background: var(--washi-2);
+      border-right: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; letter-spacing: 0.15em;
+      color: var(--forum-red); font-weight: 600;
+      padding: 16px 0;
+    }
+    .schedule-body {
+      padding: 16px 24px;
+      font-size: 13px; font-weight: 300;
+      color: var(--ink); line-height: 1.7;
+    }
+    .schedule-body strong { font-weight: 600; color: var(--ink); }
+
+    /* FORM SECTION */
+    .form-section {
+      background: var(--washi-2);
+      border: 1px solid var(--line);
+      padding: clamp(32px, 5vw, 60px) clamp(24px, 5vw, 56px);
+      margin-bottom: 64px;
+    }
+    .form-section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 900;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+    .form-section h2 em {
+      font-style: normal; color: var(--forum-red);
+    }
+    .form-section .form-desc {
+      font-size: 13px; color: var(--ink-light);
+      font-weight: 300; line-height: 1.85;
+      margin-bottom: 36px;
+    }
+
+    .f-row { margin-bottom: 24px; }
+    .f-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 600px) { .f-row-2 { grid-template-columns: 1fr; } }
+    .f-label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; letter-spacing: 0.25em;
+      color: var(--ink-muted); font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .f-label .req {
+      color: var(--forum-red);
+      margin-left: 4px;
+    }
+    .f-input, .f-select, .f-textarea {
+      width: 100%;
+      background: var(--washi);
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px; font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+      border-radius: 0;
+      appearance: none;
+    }
+    .f-input:focus, .f-select:focus, .f-textarea:focus {
+      border-color: var(--forum-red);
+    }
+    .f-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    .f-textarea { resize: vertical; min-height: 100px; }
+
+    .radio-group, .check-group {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .radio-group label, .check-group label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 300; color: var(--ink);
+      cursor: pointer;
+    }
+    .radio-group input, .check-group input {
+      accent-color: var(--forum-red);
+      width: 16px; height: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .form-divider {
+      border: none; border-top: 1px solid var(--line);
+      margin: 32px 0;
+    }
+    .form-sub-head {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; letter-spacing: 0.3em;
+      color: var(--forum-red); font-weight: 600;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .f-submit {
+      width: 100%;
+      background: var(--forum-red);
+      color: #fff;
+      border: none;
+      padding: 18px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 8px;
+    }
+    .f-submit:hover { opacity: 0.85; }
+
+    .form-note {
+      font-size: 11px; color: var(--ink-muted);
+      font-weight: 300; line-height: 1.8;
+      margin-top: 16px; text-align: center;
+    }
+
+    /* COLLAB BANNER */
+    .collab-banner {
+      border: 1px solid var(--line);
+      padding: 28px 32px;
+      display: flex; align-items: center; gap: 24px;
+      margin-bottom: 64px;
+      background: var(--washi);
+    }
+    @media (max-width: 600px) { .collab-banner { flex-direction: column; align-items: flex-start; } }
+    .collab-banner-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; letter-spacing: 0.25em;
+      color: var(--ink-muted); font-weight: 600;
+      white-space: nowrap;
+    }
+    .collab-banner-text {
+      font-size: 13px; font-weight: 300;
+      color: var(--ink); line-height: 1.7;
+    }
+    .collab-banner-text strong { font-weight: 600; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: 0.2em;
+      color: var(--ink-muted); text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.2s;
+      margin-bottom: 40px;
+    }
+    .back-link::before { content: '←'; font-size: 13px; }
+    .back-link:hover { color: var(--ink); }
+  </style>
+</head>
+<body class="page-body">
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">拓 <span>TACK</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dept-group">
+        <a href="dept-seisaku.html" class="dept-s">議会政策部</a>
+        <a href="dept-kyoiku.html"  class="dept-k">教育アクセス部</a>
+        <a href="dept-kagaku.html"  class="dept-g">医療・科学部</a>
+        <a href="dept-nanmin.html"  class="dept-n">国際共生部</a>
+      </li>
+      <li><a href="join.html" class="nav-join">参加登録</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="forum-hero">
+    <div class="forum-tag">KANSAI YOUTH FORUM 2026</div>
+    <h1>中高生が議員と対話し、<br><em>関西の未来</em>に<br>本気の提言を。</h1>
+    <p class="forum-hero-sub">
+      政策は、大人だけのものじゃない。<br>
+      あなたの声が、法律になるかもしれない。
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">DATE</span>
+        <span class="hero-meta-value">2026年8月9日（日）11:00〜18:30</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">AREA</span>
+        <span class="hero-meta-value">大阪・京都・兵庫・奈良・滋賀・和歌山</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">FEE</span>
+        <span class="hero-meta-value">参加費無料</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">TARGET</span>
+        <span class="hero-meta-value">関西在住の中学生・高校生</span>
+      </div>
+    </div>
+    <a href="#apply" class="hero-cta">応募フォームへ →</a>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="section">
+    <a href="index.html" class="back-link">トップへ戻る</a>
+
+    <!-- OVERVIEW -->
+    <div class="fade-up">
+      <p class="section-label">Overview</p>
+      <h2 class="section-title">フォーラムの<em>概要</em></h2>
+      <p class="body-text" style="margin-bottom:36px;">
+        関西ユースフォーラム2026は、<strong>学生団体「拓」と日本維新の会学生部</strong>が共催する政策提言イベントです。<br>
+        中高生がグループで関西の課題を議論し、現職議員と直接対話しながら政策提言を磨き上げ、
+        最終的には<strong>議会への公式提言</strong>につなげることを目指します。
+      </p>
+      <div class="overview-grid">
+        <div class="overview-cell">
+          <div class="overview-cell-label">CO-HOSTS</div>
+          <div class="overview-cell-value">学生団体「拓」<br>日本維新の会学生部</div>
+        </div>
+        <div class="overview-cell">
+          <div class="overview-cell-label">PARTICIPANTS</div>
+          <div class="overview-cell-value">20名以上<br>（4〜6名×複数グループ）</div>
+        </div>
+        <div class="overview-cell">
+          <div class="overview-cell-label">FORMAT</div>
+          <div class="overview-cell-value">グループ討論＋<br>議員との対話・フィードバック</div>
+        </div>
+        <div class="overview-cell">
+          <div class="overview-cell-label">VENUE</div>
+          <div class="overview-cell-value">関西（大阪・京都・兵庫など）<br>※詳細は参加者に連絡</div>
+        </div>
+        <div class="overview-cell">
+          <div class="overview-cell-label">TRAVEL SUPPORT</div>
+          <div class="overview-cell-value">交通費補助<br>（検討中）</div>
+        </div>
+        <div class="overview-cell">
+          <div class="overview-cell-label">CONTACT</div>
+          <div class="overview-cell-value">koma2thewata910<br>@gmail.com</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICS -->
+    <div class="fade-up">
+      <p class="section-label">Discussion Topics</p>
+      <h2 class="section-title">議論する<em>テーマ</em></h2>
+      <p class="body-text" style="margin-bottom:32px;">
+        全グループが共通テーマ（テーマA）を議論しつつ、グループごとに関西固有の課題（テーマB）にも切り込みます。
+      </p>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-badge">TOPIC A — 全グループ共通</div>
+          <h3>主権者教育と<br>若者の政治参加</h3>
+          <p>「なぜ若者は政治に参加しないのか」——この問いを3段階で深める。現状分析→比較検討→提言立案のサイクルで、参加意欲の向上策を具体化する。</p>
+          <ul class="topic-candidates">
+            <li>現状分析：日本の若者投票率・政治関心データの読み解き</li>
+            <li>比較検討：海外の主権者教育モデルとの比較</li>
+            <li>提言立案：学校教育・メディア・制度改革への具体提案</li>
+          </ul>
+        </div>
+        <div class="topic-card">
+          <div class="topic-badge">TOPIC B — グループ選択</div>
+          <h3>関西固有の<br>地域課題</h3>
+          <p>グループごとに1つのテーマを選択し、地域に根ざした視点から政策提言を組み立てる。</p>
+          <ul class="topic-candidates">
+            <li>候補A：若者の関西流出と都市集中問題</li>
+            <li>候補B：地域間の教育格差と機会不平等</li>
+            <li>候補C：大阪・関西万博レガシーの活用策</li>
+            <li>候補D：SNS・AI時代における若者と情報規制</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM -->
+    <div class="fade-up">
+      <p class="section-label">Program</p>
+      <h2 class="section-title">当日の<em>プログラム</em></h2>
+      <div class="timetable">
+        <div class="timetable-row">
+          <div class="timetable-time">11:00</div>
+          <div class="timetable-content">
+            <strong>開会・オリエンテーション</strong>
+            <span>趣旨説明、グループ分け、ファシリテーター紹介</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">11:30</div>
+          <div class="timetable-content">
+            <strong>テーマA 第1討論：現状分析</strong>
+            <span>若者の政治参加データを読み解き、問題の構造を整理する</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">13:00</div>
+          <div class="timetable-content">
+            <strong>昼食・交流</strong>
+            <span>グループを超えた交流タイム</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">13:45</div>
+          <div class="timetable-content">
+            <strong>テーマA 第2討論：比較検討</strong>
+            <span>海外モデルを参照し、日本への応用可能性を議論する</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">15:00</div>
+          <div class="timetable-content">
+            <strong>テーマB 討論：地域課題の深掘り</strong>
+            <span>グループ選択テーマに基づく課題分析と提言骨子の作成</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">16:15</div>
+          <div class="timetable-content">
+            <strong>テーマA 第3討論：提言立案</strong>
+            <span>議員へのヒアリング・フィードバックを受けながら提言を磨く</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">17:15</div>
+          <div class="timetable-content">
+            <strong>全グループ発表</strong>
+            <span>各グループが提言を発表し、参加者・議員が投票</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">18:00</div>
+          <div class="timetable-content">
+            <strong>表彰・クロージング</strong>
+            <span>最優秀グループ選定。提言は議員メンターとともに精緻化し、議会へ届ける</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">18:30</div>
+          <div class="timetable-content">
+            <strong>解散</strong>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOW -->
+    <div class="fade-up">
+      <p class="section-label">From Discussion to Legislature</p>
+      <h2 class="section-title">提言が<em>議会へ届く</em>まで</h2>
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-line"><div class="flow-dot"></div><div class="flow-bar"></div></div>
+          <div class="flow-body">
+            <span class="flow-step">STEP 01</span>
+            <h4>事前学習会（複数回・オンライン）</h4>
+            <p>参加者は本番前にオンライン勉強会へ参加。テーマの背景知識を身につけ、議論の質を高める。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-line"><div class="flow-dot"></div><div class="flow-bar"></div></div>
+          <div class="flow-body">
+            <span class="flow-step">STEP 02</span>
+            <h4>フォーラム本番（2026年8月9日）</h4>
+            <p>グループ討論と議員との対話を通じて提言を立案。全グループが発表し、最優秀グループを選出する。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-line"><div class="flow-dot"></div><div class="flow-bar"></div></div>
+          <div class="flow-body">
+            <span class="flow-step">STEP 03</span>
+            <h4>議員メンターとの共同精緻化</h4>
+            <p>最優秀グループは現職議員のメンタリングを受けながら提言書を政策水準に仕上げる。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-line"><div class="flow-dot"></div><div class="flow-bar"></div></div>
+          <div class="flow-body">
+            <span class="flow-step">STEP 04</span>
+            <h4>議会・行政機関への公式提言</h4>
+            <p>完成した提言を総合開拓者サミットで発表後、議員を通じて議会・行政に届ける。中高生の声が制度を動かす第一歩になる。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div class="fade-up">
+      <p class="section-label">Schedule</p>
+      <h2 class="section-title">開催までの<em>スケジュール</em></h2>
+      <div style="margin-bottom:64px;">
+        <div class="schedule-row">
+          <div class="schedule-month">2026<br>6月</div>
+          <div class="schedule-body"><strong>開催確定・告知開始</strong><br>共催・後援確定、公式SNSにて告知スタート</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-month">7月</div>
+          <div class="schedule-body"><strong>参加者募集・事前学習会</strong><br>応募受付開始（先着順）。オンライン事前学習会を複数回実施</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-month">8月9日</div>
+          <div class="schedule-body"><strong>フォーラム本番</strong><br>11:00〜18:30。提言発表・最優秀グループ決定</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-month">8月〜</div>
+          <div class="schedule-body"><strong>提言精緻化・提出</strong><br>議員メンターとの協働。総合開拓者サミット発表・議会提出</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLAB -->
+    <div class="collab-banner fade-up">
+      <div class="collab-banner-label">SUPPORTED BY</div>
+      <div class="collab-banner-text">
+        <strong>日本若者協議会</strong>（後援申請中）との連携のもと、若者の政策参加を全国的に推進します。<br>
+        共催：学生団体「拓」× 日本維新の会学生部
+      </div>
+    </div>
+
+    <!-- APPLICATION FORM -->
+    <div class="form-section fade-up" id="apply">
+      <p class="section-label">Application Form</p>
+      <h2>関西ユースフォーラム2026<br><em>参加応募フォーム</em></h2>
+      <p class="form-desc">
+        参加費は無料です。事前の政治知識や経験は問いません。<br>
+        関西に住む中学生・高校生であれば、誰でも応募できます。<br>
+        ※ 未成年の方は保護者の同意を得た上でご応募ください。
+      </p>
+
+      <form action="https://formspree.io/f/xnjyvpgj" method="POST">
+        <input type="hidden" name="_subject" value="【関西ユースフォーラム2026】参加応募" />
+        <input type="hidden" name="_next" value="https://koma2thewata910-lab.github.io/taku/forum2026.html?sent=1" />
+
+        <!-- 基本情報 -->
+        <span class="form-sub-head">PERSONAL INFO — 基本情報</span>
+        <div class="f-row-2">
+          <div>
+            <label class="f-label">氏名（漢字）<span class="req">*</span></label>
+            <input class="f-input" type="text" name="name_kanji" placeholder="拓 太郎" required />
+          </div>
+          <div>
+            <label class="f-label">ふりがな<span class="req">*</span></label>
+            <input class="f-input" type="text" name="name_kana" placeholder="たく たろう" required />
+          </div>
+        </div>
+
+        <div class="f-row-2">
+          <div>
+            <label class="f-label">学校種別<span class="req">*</span></label>
+            <select class="f-select" name="school_type" required>
+              <option value="" disabled selected>選択してください</option>
+              <option value="中学生">中学生</option>
+              <option value="高校生">高校生</option>
+            </select>
+          </div>
+          <div>
+            <label class="f-label">学年<span class="req">*</span></label>
+            <select class="f-select" name="grade" required>
+              <option value="" disabled selected>選択してください</option>
+              <option value="中学1年">中学1年</option>
+              <option value="中学2年">中学2年</option>
+              <option value="中学3年">中学3年</option>
+              <option value="高校1年">高校1年</option>
+              <option value="高校2年">高校2年</option>
+              <option value="高校3年">高校3年</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="f-row-2">
+          <div>
+            <label class="f-label">学校名<span class="req">*</span></label>
+            <input class="f-input" type="text" name="school_name" placeholder="〇〇高等学校" required />
+          </div>
+          <div>
+            <label class="f-label">都道府県<span class="req">*</span></label>
+            <select class="f-select" name="prefecture" required>
+              <option value="" disabled selected>選択してください</option>
+              <option value="大阪府">大阪府</option>
+              <option value="京都府">京都府</option>
+              <option value="兵庫県">兵庫県</option>
+              <option value="奈良県">奈良県</option>
+              <option value="滋賀県">滋賀県</option>
+              <option value="和歌山県">和歌山県</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="form-divider" />
+
+        <!-- 連絡先 -->
+        <span class="form-sub-head">CONTACT — 連絡先</span>
+        <div class="f-row">
+          <label class="f-label">メールアドレス（本人）<span class="req">*</span></label>
+          <input class="f-input" type="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="f-row">
+          <label class="f-label">保護者のメールアドレス</label>
+          <input class="f-input" type="email" name="parent_email" placeholder="保護者のメールアドレス（任意）" />
+        </div>
+
+        <hr class="form-divider" />
+
+        <!-- 議題・志望動機 -->
+        <span class="form-sub-head">TOPICS — 関心テーマ</span>
+        <div class="f-row">
+          <label class="f-label">テーマBで関心のある議題<span class="req">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="topic_b" value="A：若者の関西流出と都市集中問題" required /> 候補A：若者の関西流出と都市集中問題</label>
+            <label><input type="radio" name="topic_b" value="B：地域間の教育格差と機会不平等" /> 候補B：地域間の教育格差と機会不平等</label>
+            <label><input type="radio" name="topic_b" value="C：大阪・関西万博レガシーの活用策" /> 候補C：大阪・関西万博レガシーの活用策</label>
+            <label><input type="radio" name="topic_b" value="D：SNS・AI時代における若者と情報規制" /> 候補D：SNS・AI時代における若者と情報規制</label>
+          </div>
+        </div>
+
+        <div class="f-row" style="margin-top:24px;">
+          <label class="f-label">志望動機（200字程度）<span class="req">*</span></label>
+          <textarea class="f-textarea" name="motivation" placeholder="参加しようと思ったきっかけや、フォーラムで取り組みたいことを教えてください。" required></textarea>
+        </div>
+
+        <hr class="form-divider" />
+
+        <!-- 事前学習 -->
+        <span class="form-sub-head">PRE-LEARNING — 事前学習</span>
+        <div class="f-row">
+          <label class="f-label">事前学習会（オンライン）への参加<span class="req">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="pre_learning" value="参加できる" required /> 参加できる（平日夜・週末を想定）</label>
+            <label><input type="radio" name="pre_learning" value="日程次第で参加可能" /> 日程次第で参加可能</label>
+            <label><input type="radio" name="pre_learning" value="参加が難しい" /> 参加が難しいかもしれない</label>
+          </div>
+        </div>
+
+        <div class="f-row" style="margin-top:24px;">
+          <label class="f-label">その他・質問・伝えたいこと</label>
+          <textarea class="f-textarea" name="message" placeholder="アレルギー・配慮が必要なこと・質問など、自由にお書きください。" style="min-height:80px;"></textarea>
+        </div>
+
+        <button type="submit" class="f-submit">応募を送信する →</button>
+        <p class="form-note">
+          送信後、確認メールをお送りします。<br>
+          お問い合わせ：<a href="mailto:koma2thewata910@gmail.com" style="color:var(--forum-red);">koma2thewata910@gmail.com</a> / 090-8646-1367
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logo">拓 / TACK</div>
+    <p class="footer-copy">© 2026 TACK — 学生団体 拓. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Thanks message
+    if (location.search.includes('sent=1')) {
+      const hero = document.querySelector('.form-section');
+      if (hero) {
+        hero.insertAdjacentHTML('afterbegin', `
+          <div style="background:var(--forum-red);color:#fff;padding:20px 28px;margin-bottom:28px;font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;letter-spacing:0.05em;">
+            応募を受け付けました。ありがとうございます。確認メールをご確認ください。
+          </div>
+        `);
+      }
+    }
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
