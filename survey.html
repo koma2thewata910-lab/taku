@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أصوات لم تُسمع بعد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6EE;
+    --paper-dim:#F1EAD9;
+    --ink:#1C2321;
+    --ink-soft:#5B564C;
+    --teal:#24534F;
+    --teal-deep:#173835;
+    --gold:#B8873D;
+    --rose:#A6493F;
+    --line: rgba(28,35,33,0.12);
+    --radius: 14px;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Tajawal', 'Noto Sans JP', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  .jp{
+    font-family:'Noto Sans JP','Tajawal',sans-serif;
+    direction:ltr;
+    display:block;
+    color:var(--ink-soft);
+    font-size:0.78rem;
+    font-weight:400;
+    margin-top:4px;
+    line-height:1.6;
+  }
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding:0 20px 80px;
+  }
+  /* Header */
+  header{
+    padding:36px 20px 28px;
+    text-align:center;
+    background:linear-gradient(180deg, var(--teal-deep) 0%, var(--teal) 100%);
+    color:var(--paper);
+    border-bottom-left-radius:28px;
+    border-bottom-right-radius:28px;
+    margin-bottom:28px;
+  }
+  .lattice{
+    width:100%;
+    max-width:220px;
+    margin:0 auto 18px;
+    opacity:0.85;
+  }
+  h1{
+    font-size:1.65rem;
+    font-weight:900;
+    margin:0 0 6px;
+    letter-spacing:0.01em;
+  }
+  header .jp{
+    color:rgba(250,246,238,0.75);
+    font-size:0.82rem;
+    margin-top:8px;
+  }
+  .eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--gold);
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:10px;
+    direction:ltr;
+  }
+  /* Consent box */
+  .consent{
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin-bottom:30px;
+    font-size:0.95rem;
+  }
+  .consent p{ margin:0 0 10px; }
+  .consent p:last-child{ margin-bottom:0; }
+  .badge-row{
+    display:flex;
+    gap:8px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+  }
+  .badge{
+    font-size:0.72rem;
+    font-weight:700;
+    background:var(--teal);
+    color:var(--paper);
+    padding:5px 12px;
+    border-radius:999px;
+  }
+  /* Progress */
+  .progress-track{
+    height:4px;
+    background:var(--line);
+    border-radius:2px;
+    margin-bottom:36px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background:var(--gold);
+    width:0%;
+    transition:width 0.3s ease;
+  }
+  /* Question cards */
+  fieldset{
+    border:none;
+    margin:0 0 22px;
+    padding:20px 20px 18px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+  }
+  .qnum{
+    display:inline-block;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--gold);
+    direction:ltr;
+    margin-bottom:10px;
+    letter-spacing:0.05em;
+  }
+  legend{
+    font-size:1.05rem;
+    font-weight:700;
+    padding:0;
+    margin-bottom:2px;
+  }
+  .options{
+    display:flex;
+    gap:10px;
+    margin-top:16px;
+  }
+  .opt{
+    flex:1;
+    position:relative;
+  }
+  .opt input{
+    position:absolute;
+    opacity:0;
+    inset:0;
+    width:100%;
+    height:100%;
+    cursor:pointer;
+    margin:0;
+  }
+  .opt label{
+    display:block;
+    text-align:center;
+    padding:12px 8px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    font-weight:700;
+    font-size:0.98rem;
+    color:var(--ink-soft);
+    transition:all 0.15s ease;
+    cursor:pointer;
+  }
+  .opt input:checked + label{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:var(--paper);
+  }
+  .opt input:focus-visible + label{
+    outline:3px solid var(--gold);
+    outline-offset:2px;
+  }
+  /* Free text */
+  textarea{
+    width:100%;
+    min-height:130px;
+    font-family:'Tajawal','Noto Sans JP',sans-serif;
+    font-size:1rem;
+    padding:14px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    resize:vertical;
+    margin-top:14px;
+    background:var(--paper);
+  }
+  textarea:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:1px;
+  }
+  /* Submit */
+  .submit-row{
+    margin-top:8px;
+  }
+  button.submit{
+    width:100%;
+    padding:16px;
+    font-size:1.05rem;
+    font-weight:900;
+    background:var(--rose);
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-family:inherit;
+    transition:transform 0.1s ease, background 0.2s ease;
+  }
+  button.submit:hover{ background:#8f3d34; }
+  button.submit:active{ transform:scale(0.98); }
+  button.submit:disabled{ opacity:0.6; cursor:default; }
+  button.submit .jp{ color:rgba(255,255,255,0.8); margin-top:4px; }
+  .error-msg{
+    color:var(--rose);
+    font-size:0.85rem;
+    margin-top:10px;
+    text-align:center;
+    display:none;
+  }
+  /* Success screen */
+  .success{
+    display:none;
+    text-align:center;
+    padding:60px 20px;
+  }
+  .success .mark{
+    width:64px;
+    height:64px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:var(--teal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .success h2{
+    font-size:1.4rem;
+    margin:0 0 8px;
+  }
+  .success p{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    max-width:400px;
+    margin:0 auto;
+  }
+  .footnote{
+    text-align:center;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    margin-top:30px;
+    direction:ltr;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="lattice" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#B8873D" stroke-width="1" fill="none" opacity="0.9">
+      <path d="M10 20 L30 5 L50 20 L30 35 Z"/>
+      <path d="M50 20 L70 5 L90 20 L70 35 Z"/>
+      <path d="M90 20 L110 5 L130 20 L110 35 Z"/>
+      <path d="M130 20 L150 5 L170 20 L150 35 Z"/>
+      <path d="M170 20 L190 5 L210 20 L190 35 Z"/>
+      <path d="M30 5 L30 35 M70 5 L70 35 M110 5 L110 35 M150 5 L150 35 M190 5 L190 35" opacity="0.4"/>
+    </g>
+  </svg>
+  <div class="eyebrow">ANONYMOUS &middot; 匿名</div>
+  <h1>أصوات لم تُسمع بعد</h1>
+  <span class="jp">まだ届いていない声について</span>
+</header>
+
+<div class="wrap">
+
+  <div id="formView">
+
+    <div class="consent">
+      <div class="badge-row">
+        <span class="badge">مجهول الهوية</span>
+        <span class="badge">اختياري</span>
+        <span class="badge">بحثي</span>
+      </div>
+      <p>استبيان مجهول الهوية لفهم تجربتكم مع نظام اللجوء والهجرة في اليابان. المشاركة اختيارية بالكامل، ولن يُطلب اسمكم أو أي معلومة تعرّف بهويتكم. الهدف هو إيصال أصواتكم إلى صانعي السياسات في اليابان.</p>
+      <p class="jp">これは匿名アンケートです。日本の難民・移民制度についての経験をお伺いします。参加は完全に任意で、お名前など個人が特定される情報は一切聞きません。目的は、皆さまの声を日本の政策決定者に届けることです。</p>
+    </div>
+
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+    <form id="surveyForm">
+
+      <fieldset>
+        <span class="qnum">01 / 10</span>
+        <legend>هل تقدمتم بطلب لجوء في اليابان؟<span class="jp">日本で難民申請をしたことがありますか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q1" value="نعم" id="q1y"><label for="q1y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q1" value="لا" id="q1n"><label for="q1n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">02 / 10</span>
+        <legend>هل شُرحت لكم إجراءات طلب اللجوء بوضوح عند التقديم؟<span class="jp">申請の手続きは、申請時に明確に説明されましたか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q2" value="نعم" id="q2y"><label for="q2y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q2" value="لا" id="q2n"><label for="q2n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">03 / 10</span>
+        <legend>هل كان لديكم مترجم موثوق أثناء المقابلة مع مكتب الهجرة؟<span class="jp">入管での面接時、信頼できる通訳がいましたか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q3" value="نعم" id="q3y"><label for="q3y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q3" value="لا" id="q3n"><label for="q3n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">04 / 10</span>
+        <legend>هل شعرتم أن رأيكم واهتماماتكم وُضعت في الاعتبار أثناء العملية؟<span class="jp">手続きの中で、あなたの意見や事情が考慮されたと感じましたか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q4" value="نعم" id="q4y"><label for="q4y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q4" value="لا" id="q4n"><label for="q4n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">05 / 10</span>
+        <legend>هل واجهتم تأخيرًا طويلاً غير مبرر في معالجة طلبكم؟<span class="jp">申請処理において、不当に長い遅延を経験しましたか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q5" value="نعم" id="q5y"><label for="q5y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q5" value="لا" id="q5n"><label for="q5n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">06 / 10</span>
+        <legend>هل تعرفون إلى أين يمكنكم تقديم شكوى أو ملاحظة حول النظام؟<span class="jp">制度について苦情や意見を伝える窓口を知っていますか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q6" value="نعم" id="q6y"><label for="q6y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q6" value="لا" id="q6n"><label for="q6n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">07 / 10</span>
+        <legend>هل شعرتم أن صوتكم وصل فعليًا إلى الجهات المسؤولة عن صنع السياسة؟<span class="jp">あなたの声は、実際に政策を決める側に届いたと感じますか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q7" value="نعم" id="q7y"><label for="q7y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q7" value="لا" id="q7n"><label for="q7n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">08 / 10</span>
+        <legend>هل تعتقدون أن المجتمع الياباني يفهم وضعكم كلاجئين/مهاجرين؟<span class="jp">日本社会は、難民・移民としてのあなたの状況を理解していると思いますか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q8" value="نعم" id="q8y"><label for="q8y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q8" value="لا" id="q8n"><label for="q8n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">09 / 10</span>
+        <legend>هل واجهتم صعوبة في الوصول إلى الدعم القانوني (محامٍ أو منظمة دعم)؟<span class="jp">弁護士や支援団体などの法的支援にアクセスするのに苦労しましたか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q9" value="نعم" id="q9y"><label for="q9y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q9" value="لا" id="q9n"><label for="q9n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <span class="qnum">10 / 10</span>
+        <legend>هل تشعرون بالأمان في التحدث عن تجربتكم مع اللجوء في اليابان دون خوف من التأثير على طلبكم؟<span class="jp">申請への影響を恐れずに、日本での難民経験について話すことに安心感がありますか？</span></legend>
+        <div class="options">
+          <div class="opt"><input type="radio" name="q10" value="نعم" id="q10y"><label for="q10y">نعم</label></div>
+          <div class="opt"><input type="radio" name="q10" value="لا" id="q10n"><label for="q10n">لا</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>إذا كان هناك شيء تريدون قوله بصراحة للحكومة اليابانية أو للأمم المتحدة حول تجربتكم، يرجى كتابته هنا بحرية.<span class="jp">日本政府や国連に対して、率直に伝えたいことがあれば、自由にお書きください。</span></legend>
+        <textarea id="freeText" placeholder="اكتب هنا... / ここに自由にお書きください"></textarea>
+      </fieldset>
+
+      <div class="submit-row">
+        <button type="submit" class="submit" id="submitBtn">
+          إرسال
+          <span class="jp">送信する</span>
+        </button>
+        <p class="error-msg" id="errorMsg">حدث خطأ، يرجى المحاولة مرة أخرى. / エラーが発生しました。もう一度お試しください。</p>
+      </div>
+    </form>
+  </div>
+
+  <div class="success" id="successView">
+    <div class="mark">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF6EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <h2>شكرًا لكم</h2>
+    <p>وصل صوتكم. كل إجابة تساعد في بناء صورة أوضح عن الواقع.</p>
+    <p class="jp" style="margin-top:14px;">ご回答ありがとうございました。あなたの声は届きました。</p>
+  </div>
+
+  <p class="footnote">no names collected &middot; responses stored anonymously</p>
+</div>
+
+<script>
+  const form = document.getElementById('surveyForm');
+  const progressFill = document.getElementById('progressFill');
+  const errorMsg = document.getElementById('errorMsg');
+  const submitBtn = document.getElementById('submitBtn');
+
+  const radioGroups = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
+
+  function updateProgress(){
+    let answered = 0;
+    radioGroups.forEach(name => {
+      if(form.querySelector(`input[name="${name}"]:checked`)) answered++;
+    });
+    const pct = Math.round((answered / radioGroups.length) * 100);
+    progressFill.style.width = pct + '%';
+  }
+  form.addEventListener('change', updateProgress);
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    errorMsg.style.display = 'none';
+
+    const answers = {};
+    radioGroups.forEach(name => {
+      const checked = form.querySelector(`input[name="${name}"]:checked`);
+      answers[name] = checked ? checked.value : null;
+    });
+    answers.freeText = document.getElementById('freeText').value.trim();
+    answers.submittedAt = new Date().toISOString();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '...';
+
+    // Primary: email via Web3Forms
+    let emailOk = false;
+    try {
+      const payload = {
+        access_key: "62f0ed54-f4c0-4212-9d17-ad26796d169e",
+        subject: "New survey response / استبيان جديد",
+        from_name: "Survey Bot",
+        "1_visa_application": answers.q1,
+        "2_procedure_explained": answers.q2,
+        "3_had_translator": answers.q3,
+        "4_opinion_considered": answers.q4,
+        "5_long_delay": answers.q5,
+        "6_knows_complaint_channel": answers.q6,
+        "7_voice_reached_policy": answers.q7,
+        "8_society_understands": answers.q8,
+        "9_legal_support_difficulty": answers.q9,
+        "10_feels_safe_speaking": answers.q10,
+        free_text: answers.freeText || "(none)",
+        submitted_at: answers.submittedAt
+      };
+      const resp = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const json = await resp.json();
+      emailOk = !!json.success;
+      if(!emailOk) console.error('Web3Forms error:', json);
+    } catch(err){
+      console.error('Email submission failed:', err);
+    }
+
+    if(emailOk){
+      document.getElementById('formView').style.display = 'none';
+      document.getElementById('successView').style.display = 'block';
+    } else {
+      errorMsg.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'إرسال<span class="jp">送信する</span>';
+    }
+  });
+</script>
+
+</body>
+</html>
