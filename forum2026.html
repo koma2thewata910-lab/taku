@@ -599,6 +599,29 @@
     }
     .back-link::before { content: '←'; font-size: 13px; }
     .back-link:hover { color: var(--ink); }
+
+    /* ===== 書道ロゴ（ヒーロー最上部） ===== */
+    .forum-shodo-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .forum-shodo-logo img {
+      width: clamp(260px, 42vw, 560px);
+      opacity: 0.92;
+      filter: drop-shadow(0 0 40px rgba(255,255,255,0.12)) drop-shadow(0 0 80px rgba(192,57,43,0.08));
+      animation: logo-breathe 6s ease-in-out infinite alternate;
+    }
+    @keyframes logo-breathe {
+      from { opacity: 0.85; filter: drop-shadow(0 0 30px rgba(255,255,255,0.10)); }
+      to   { opacity: 0.98; filter: drop-shadow(0 0 50px rgba(255,255,255,0.18)) drop-shadow(0 0 90px rgba(192,57,43,0.12)); }
+    }
   </style>
 </head>
 <body class="page-body">
@@ -610,7 +633,7 @@
       <li class="nav-dept-group">
         <a href="dept-seisaku.html" class="dept-s">議会政策部</a>
         <a href="dept-kyoiku.html"  class="dept-k">教育アクセス部</a>
-        <a href="dept-kagaku.html"  class="dept-g">医療・科学部</a>
+
         <a href="dept-nanmin.html"  class="dept-n">国際共生部</a>
       </li>
       <li><a href="join.html" class="nav-join">参加登録</a></li>
@@ -623,6 +646,11 @@
     <div class="forum-hero-grad"></div>
     <div class="forum-hero-redline"></div>
     <div class="forum-year-bg">2026</div>
+
+    <!-- 書道ロゴ 超大 -->
+    <div class="forum-shodo-logo">
+      <img src="taku-shodo-white.png" alt="拓 / TACK" />
+    </div>
 
     <div class="forum-hero-inner">
       <div class="forum-tag">KANSAI YOUTH FORUM 2026</div>
