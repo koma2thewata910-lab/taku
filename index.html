@@ -184,30 +184,63 @@
       background: #0d0d0d;
     }
 
-    /* Background photo — stage.jpg */
+    /* Background photo — Unsplash youth */
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('stage.jpg');
+      background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80');
       background-size: cover;
-      background-position: center 40%;
-      filter: grayscale(10%) brightness(0.6);
+      background-position: center 30%;
+      filter: grayscale(30%);
       transform: scale(1.04);
-      animation: hero-zoom 18s ease-in-out infinite alternate;
+      animation: hero-zoom 14s ease-in-out infinite alternate;
     }
     @keyframes hero-zoom {
-      from { transform: scale(1.04) translateX(0); }
-      to   { transform: scale(1.08) translateX(-0.5%); }
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.10); }
     }
 
     /* dark gradient overlay */
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(
-        to top,
-        rgba(6,4,2,0.92) 0%,
-        rgba(6,4,2,0.55) 45%,
-        rgba(0,0,0,0.15) 100%
+        135deg,
+        rgba(10,8,6,0.82) 0%,
+        rgba(10,8,6,0.65) 50%,
+        rgba(192,57,43,0.18) 100%
       );
+    }
+
+    /* ======== STAGE LOGO SECTION ======== */
+    .stage-logo-section {
+      position: relative;
+      width: 100%;
+      height: clamp(340px, 55vw, 680px);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stage-logo-bg {
+      position: absolute; inset: 0;
+      background-image: url('stage.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      filter: brightness(0.65);
+    }
+    .stage-logo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.45) 100%
+      );
+    }
+    .stage-logo-img {
+      position: relative;
+      z-index: 2;
+      width: clamp(260px, 46vw, 620px);
+      filter: drop-shadow(0 6px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 80px rgba(255,255,255,0.15));
+      animation: shodo-glow 7s ease-in-out infinite alternate;
     }
     /* scanline texture */
     .hero-overlay::after {
@@ -1111,11 +1144,6 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
 
-    <!-- 書道ロゴ — ヒーロー中央に大きく -->
-    <div class="hero-shodo-wrap">
-      <img src="tack-logo-white.png" alt="拓 / TACK" />
-    </div>
-
     <div class="hanko">拓</div>
     <div class="hero-inner fade-up">
       <div class="hero-text-col">
@@ -1152,6 +1180,13 @@
     </div>
     <div class="scroll-hint">SCROLL</div>
   </section>
+
+  <!-- STAGE LOGO SECTION — stage.jpg + 拓 TACK logo -->
+  <div class="stage-logo-section">
+    <div class="stage-logo-bg"></div>
+    <div class="stage-logo-overlay"></div>
+    <img class="stage-logo-img" src="tack-logo-white.png" alt="拓 / TACK" />
+  </div>
 
   <!-- PHOTO STRIP -->
   <div class="photo-strip">
