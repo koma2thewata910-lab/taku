@@ -1,242 +1,329 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>教育アクセス部 — 拓 / TACK</title>
-  <meta name="description" content="教育アクセス部は、教育機会の格差をデータで可視化し、給付型奨学金や学校外教育支援の政策提言につなげます。" />
-  <meta name="author" content="学生団体 拓 / TACK" />
-  <meta property="og:title" content="教育アクセス部 — 拓 / TACK" />
-  <meta property="og:description" content="教育アクセス部は、教育機会の格差をデータで可視化し、給付型奨学金や学校外教育支援の政策提言につなげます。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://koma2thewata910-lab.github.io/taku/dept-kyoiku.html" />
-  <meta property="og:image" content="https://koma2thewata910-lab.github.io/taku/taku-shodo.png" />
-  <meta property="og:locale" content="ja_JP" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://koma2thewata910-lab.github.io/taku/dept-kyoiku.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#243c34">
+  <title>教育アクセス部 | 拓 / TACK</title>
+  <meta name="description" content="一人ひとりが、自分に合った学びを選べる社会へ。TACK教育アクセス部の活動、Global Youth Summit for Changeでの発表、個性設計型スクールデザイナーの構想を紹介します。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://koma2thewata910-lab.github.io/taku/taku-shodo.png">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="教育アクセス部 | 拓 / TACK">
+  <meta property="og:description" content="当事者の声から、学びの選択肢を考える。グローバルユースサミットの活動報告と、個性設計型スクールデザイナーの教育構想。">
+  <meta property="og:url" content="https://koma2thewata910-lab.github.io/taku/dept-kyoiku.html">
+  <link rel="canonical" href="https://koma2thewata910-lab.github.io/taku/dept-kyoiku.html">
   <style>
-    :root { --dept-color: var(--col-kyoiku); }
-
-    .act-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 64px; }
-    .act-item {
-      background: var(--washi);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 32px;
-      padding: 32px 28px;
-      align-items: start;
-      transition: background 0.25s;
-    }
-    .act-item:hover { background: var(--washi-2); }
-    .act-num {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px; letter-spacing: 0.3em;
-      color: var(--dept-color); font-weight: 600;
-      padding-top: 3px; white-space: nowrap;
-    }
-    .act-body h4 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(16px, 1.8vw, 19px);
-      font-weight: 700; margin-bottom: 10px; letter-spacing: 0.04em;
-    }
-    .act-body p { font-size: 13px; color: var(--ink-light); line-height: 1.9; font-weight: 300; }
-
-    .connect-block {
-      border-left: 3px solid var(--dept-color);
-      padding: 24px 28px;
-      background: var(--washi-2);
-      margin-bottom: 64px;
-    }
-    .connect-block p { font-size: 15px; line-height: 1.95; color: var(--ink-light); font-weight: 300; }
-    .connect-block strong { color: var(--ink); font-weight: 500; }
-
-    .data-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin-bottom: 64px;
-    }
-    .data-item {
-      background: var(--washi);
-      padding: 28px 24px;
-    }
-    .data-label { font-size: 10px; letter-spacing: 0.25em; color: var(--ink-muted); font-family: 'Inter', sans-serif; margin-bottom: 10px; }
-    .data-value {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(13px, 1.6vw, 15px);
-      font-weight: 500;
-      line-height: 1.6;
-      color: var(--ink);
-    }
-
-    .back-link {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; letter-spacing: 0.2em;
-      color: var(--ink-muted); text-decoration: none;
-      font-family: 'Inter', sans-serif;
-      transition: color 0.2s;
-      margin-bottom: 40px;
-    }
-    .back-link::before { content: '←'; font-size: 13px; }
-    .back-link:hover { color: var(--ink); }
-
-    .cta-strip {
-      background: var(--dept-color);
-      color: #fff;
-      padding: clamp(40px,6vw,64px) clamp(28px,5vw,56px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .cta-strip h3 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(18px,2.5vw,26px);
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-    }
-    .cta-strip p { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 300; }
-    .cta-strip a {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.5);
-      color: #fff; font-size: 11px; letter-spacing: 0.22em;
-      padding: 14px 28px; text-decoration: none; white-space: nowrap;
-      font-family: 'Noto Sans JP', sans-serif; transition: background 0.2s;
-    }
-    .cta-strip a:hover { background: rgba(255,255,255,0.12); }
+    :root{--paper:#f7f6f1;--white:#fffefa;--ink:#1e2b26;--muted:#5c6860;--green:#243c34;--deep:#1b3028;--lime:#e0e8b6;--line:#d7dcd0;--accent:#70824e;--measure:1140px;--gutter:clamp(22px,5.2vw,76px)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:98px}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,"Noto Sans CJK JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+    body,button{font-feature-settings:"palt"}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #82944b;outline-offset:5px}
+    p,h1,h2,h3,h4,figure,blockquote,dl,dd{margin:0}
+    img{display:block;max-width:100%}
+    button{font:inherit}
+    ::selection{background:var(--lime);color:var(--green)}
+    .skip{position:fixed;top:0;left:20px;z-index:100;transform:translateY(-130%);padding:8px 18px;background:var(--ink);color:#fff}
+    .skip:focus{transform:translateY(10px)}
+    .wrap{width:min(var(--measure),calc(100% - var(--gutter)*2));margin-inline:auto}
+    .eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;line-height:1.6;text-transform:uppercase}
+    .mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+    .site-header{height:84px;position:sticky;top:0;z-index:30;background:rgba(247,246,241,.97);border-bottom:1px solid var(--line)}
+    .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .brand{display:inline-flex;align-items:center;gap:13px;flex-shrink:0;line-height:1}
+    .brand-mark{font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif CJK JP",serif;font-size:39px;font-weight:700}
+    .brand-meta{display:flex;flex-direction:column;gap:5px;border-left:1px solid var(--line);padding-left:13px}
+    .brand-name{font-size:17px;font-weight:800;letter-spacing:.12em}
+    .brand-sub{font-size:9px;letter-spacing:.12em;color:var(--muted)}
+    .header-nav{display:flex;align-items:center;gap:27px;font-size:12px;font-weight:600;line-height:1.5}
+    .header-nav a:not(.join-link){padding-block:10px;border-bottom:1px solid transparent}
+    .header-nav a:not(.join-link):hover{border-color:var(--green)}
+    .header-nav .current{color:var(--green);border-bottom-color:var(--green)!important}
+    .join-link{display:flex;align-items:center;gap:22px;padding:12px 17px;background:var(--green);color:var(--white)}
+    .menu-toggle{display:none;border:1px solid var(--line);padding:8px 12px;background:transparent;font-size:12px;cursor:pointer}
+    .breadcrumb{display:flex;align-items:center;gap:12px;font-size:10px;color:var(--muted);padding-top:25px;letter-spacing:.02em}
+    .breadcrumb .divider{color:#adb6aa}
+    .hero{padding:56px 0 69px;position:relative}
+    .hero-top{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+    .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;display:inline-block;flex-shrink:0}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(235px,.75fr);gap:58px;align-items:end}
+    .hero h1{font-weight:650;font-size:clamp(36px,4.5vw,65px);line-height:1.55;letter-spacing:.015em}
+    .hero h1 .highlight{display:inline;background:linear-gradient(transparent 77%,var(--lime) 77%,var(--lime) 94%,transparent 94%);padding-bottom:4px}
+    .dept-name{font-size:16px;letter-spacing:.12em;font-weight:650;margin-top:31px}
+    .hero-note{border-top:1px solid var(--green);padding-top:22px;margin-bottom:10px}
+    .hero-note .eyebrow{color:var(--muted)}
+    .hero-note h2{font-size:22px;line-height:1.75;letter-spacing:.025em;margin:17px 0 18px;font-weight:600}
+    .hero-note p{font-size:13px;line-height:2.15;color:var(--muted)}
+    .page-nav{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
+    .page-nav a{padding:18px 21px;display:flex;align-items:center;gap:13px;font-size:12px;transition:background .2s}
+    .page-nav a:first-child{padding-left:0}
+    .page-nav a+a{border-left:1px solid var(--line)}
+    .page-nav a:hover{background:var(--lime)}
+    .page-nav .num{color:var(--accent);font-size:10px}
+    .page-nav .arrow{margin-left:auto;color:var(--muted)}
+    .section{padding:92px 0}
+    .section-heading{display:grid;grid-template-columns:225px minmax(0,1fr);gap:35px;margin-bottom:45px}
+    .section-heading>.eyebrow{padding-top:12px;color:var(--muted)}
+    .section-title{font-size:clamp(27px,3vw,40px);font-weight:600;line-height:1.65;letter-spacing:.025em}
+    .section-lead{font-size:15px;line-height:2.15;margin-top:24px;max-width:715px;color:var(--muted)}
+    .focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:33px;margin-top:48px}
+    .focus-item{border-top:1px solid var(--ink);padding-top:18px}
+    .focus-item .index{font-size:11px;color:var(--accent);letter-spacing:.1em}
+    .focus-item h3{font-size:18px;font-weight:650;margin:15px 0 12px}
+    .focus-item p{font-size:13px;line-height:2.1;color:var(--muted)}
+    .report{background:var(--green);color:var(--white);padding:82px 0 78px}
+    .report-header{display:flex;justify-content:space-between;gap:35px;align-items:start;margin-bottom:35px}
+    .report .eyebrow{color:var(--lime)}
+    .report-status{font-size:10px;letter-spacing:.12em;border:1px solid #8fa18f;padding:7px 14px;white-space:nowrap;margin-top:2px}
+    .report h2{font-size:clamp(31px,3.65vw,51px);font-weight:550;line-height:1.65;letter-spacing:.025em;margin-top:19px}
+    .event-name{font-size:clamp(16px,1.8vw,23px);font-weight:500;letter-spacing:.005em;margin-top:22px;line-height:1.7}
+    .event-meta{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:12px;color:#d3dbcf;font-size:11px;letter-spacing:.035em}
+    .event-meta span+span{border-left:1px solid #748474;padding-left:18px}
+    .summit-photo{margin-top:40px}
+    .summit-photo img{width:100%;height:auto;background:#dbe0d6}
+    .summit-photo figcaption{font-size:10px;letter-spacing:.055em;color:#ced8cd;margin-top:12px;display:flex;justify-content:space-between;gap:15px;line-height:1.8}
+    .report-body{display:grid;grid-template-columns:225px minmax(0,1fr);gap:35px;padding-top:44px}
+    .report-body .label{font-size:12px;letter-spacing:.1em;color:var(--lime);padding-top:5px}
+    .report-copy{font-size:14px;line-height:2.25;max-width:760px}
+    .report-copy p+p{margin-top:20px;color:#e0e5dc}
+    .report-copy strong{font-weight:650;color:#f5f5e9}
+    .report-subtitle{font-size:12px;letter-spacing:.12em;color:var(--lime);margin:42px 0 20px;font-weight:500}
+    .report-points{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+    .report-point{border-top:1px solid #708474;padding-top:20px}
+    .report-point .point-label{font-size:10px;letter-spacing:.16em;color:var(--lime)}
+    .report-point h3{font-size:17px;font-weight:550;margin:9px 0 10px}
+    .report-point p{font-size:12px;line-height:2.1;color:#d5dfd2}
+    .report-next{display:grid;grid-template-columns:130px 1fr;gap:23px;border-top:1px solid #708474;margin-top:36px;padding-top:24px}
+    .report-next .next-label{font-size:11px;letter-spacing:.08em;color:var(--lime);padding-top:4px}
+    .report-next p{font-size:13px;color:#e1e8dd;line-height:2.1}
+    .knowledge{background:var(--white)}
+    .knowledge .section-heading{margin-bottom:37px}
+    .project-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(270px,.75fr);gap:66px;padding-top:35px;border-top:1px solid var(--line)}
+    .project-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.06em;color:var(--muted)}
+    .project-title{font-size:clamp(26px,3.15vw,42px);font-weight:600;line-height:1.65;margin:15px 0 25px}
+    .project-copy{font-size:14px;color:var(--muted);line-height:2.25}
+    .project-copy p+p{margin-top:18px}
+    .award{border:1px solid #bdc8ac;padding:29px 29px 26px;background:#eef0e4;align-self:start}
+    .award .eyebrow{color:#526345}
+    .award .award-date{font-size:12px;letter-spacing:.06em;margin-top:24px;color:#53624c}
+    .award .award-name{font-size:17px;line-height:1.95;margin-top:12px;font-weight:600}
+    .award .award-category{font-size:12px;color:var(--muted);margin-top:12px}
+    .award .award-result{font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif CJK JP",serif;font-size:36px;letter-spacing:.12em;line-height:1.6;margin-top:10px}
+    .award .award-by{font-size:11px;color:var(--muted);line-height:1.9;margin-top:20px;border-top:1px solid #cbd3c0;padding-top:16px}
+    .connection{margin-top:48px;padding-top:29px;border-top:1px solid var(--line)}
+    .connection-label{font-size:11px;letter-spacing:.12em;color:var(--muted);margin-bottom:22px}
+    .timeline{display:grid;grid-template-columns:1fr 30px 1fr 30px 1fr;gap:14px;align-items:start}
+    .timeline .time{font-size:10px;color:#546348;letter-spacing:.045em}
+    .timeline h4{font-size:14px;font-weight:600;line-height:1.8;margin-top:5px}
+    .timeline .timeline-arrow{font-size:17px;padding-top:20px;color:#83926e}
+    .connection-note{font-size:11px;color:var(--muted);margin-top:23px;line-height:2}
+    .future{padding-bottom:82px}
+    .future .section-heading{margin-bottom:35px}
+    .future-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+    .future-step{padding:25px 23px 27px}
+    .future-step+.future-step{border-left:1px solid var(--line)}
+    .future-step .step-num{font-size:11px;color:var(--accent);letter-spacing:.08em}
+    .future-step h3{font-size:19px;font-weight:600;margin:14px 0 9px}
+    .future-step p{font-size:12px;color:var(--muted);line-height:2.1}
+    .future-note{font-size:11px;color:var(--muted);margin-top:18px;line-height:2}
+    .join{padding:58px 0;background:var(--lime)}
+    .join-inner{display:flex;justify-content:space-between;align-items:center;gap:40px}
+    .join h2{font-size:clamp(24px,2.75vw,35px);font-weight:600;line-height:1.7}
+    .join p{font-size:13px;margin-top:12px;color:#495942}
+    .join-button{display:inline-flex;align-items:center;justify-content:space-between;gap:50px;white-space:nowrap;background:var(--green);color:var(--white);padding:17px 25px;font-size:13px}
+    .join-button:hover,.join-link:hover{background:var(--deep)}
+    .footer{padding:34px 0;background:var(--paper)}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:25px}
+    .footer-brand{font-size:19px;font-weight:650;letter-spacing:.08em}
+    .footer-sub{font-size:10px;color:var(--muted);margin-top:2px}
+    .footer-meta{font-size:10px;text-align:right;line-height:2.15;color:var(--muted)}
+    @media(min-width:1500px){.hero{padding-top:70px}.hero h1{font-size:66px}}
+    @media(max-width:1000px){.hero-grid{gap:35px;grid-template-columns:1.35fr .8fr}.hero h1{font-size:clamp(33px,4.65vw,49px)}.hero-note h2{font-size:19px}.section-heading,.report-body{grid-template-columns:175px 1fr;gap:25px}.header-nav{gap:19px}.project-grid{gap:35px}.page-nav a{padding-inline:14px;gap:10px}.future-step{padding-inline:18px}.report-points{gap:20px}}
+    @media(max-width:760px){html{scroll-padding-top:80px}.site-header{height:72px}.brand-mark{font-size:34px}.brand-name{font-size:15px}.header-inner{position:relative}.menu-toggle{display:block}.header-nav{display:none;position:absolute;top:71px;right:calc(var(--gutter)*-1);left:calc(var(--gutter)*-1);padding:15px var(--gutter) 24px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 18px #1e2b2608;flex-direction:column;align-items:stretch;gap:4px}.header-nav.is-open{display:flex}.header-nav a{padding:12px 0!important}.header-nav .join-link{padding:13px 18px!important;margin-top:10px;justify-content:space-between}.breadcrumb{padding-top:19px;font-size:9px;gap:9px}.hero{padding:34px 0 37px}.hero-top{margin-bottom:17px}.eyebrow{font-size:10px}.hero-grid{grid-template-columns:1fr;gap:30px}.hero h1{font-size:clamp(29px,6.8vw,45px);line-height:1.7;letter-spacing:.015em}.dept-name{font-size:13px;margin-top:21px}.hero-note{max-width:none;margin:0;padding-top:18px;display:grid;grid-template-columns:1fr;gap:12px}.hero-note>.eyebrow{grid-column:1/-1}.hero-note h2{font-size:17px;margin:0;line-height:1.9}.hero-note p{font-size:12px;line-height:2}.page-nav{grid-template-columns:repeat(2,1fr)}.page-nav a{padding:15px 13px!important;font-size:11px;gap:9px}.page-nav a:nth-child(odd){padding-left:0!important;border-left:none}.page-nav a:nth-child(n+3){border-top:1px solid var(--line)}.section{padding:57px 0}.section-heading,.report-body{grid-template-columns:1fr;gap:16px}.section-heading{margin-bottom:28px}.section-heading>.eyebrow{padding-top:0}.section-title{font-size:27px}.section-lead{font-size:13px;margin-top:20px;line-height:2.2}.focus-grid{grid-template-columns:1fr;gap:22px;margin-top:31px}.focus-item{display:grid;grid-template-columns:110px 1fr;gap:8px 18px;padding-top:16px}.focus-item .index{grid-column:1/-1;font-size:10px}.focus-item h3{font-size:16px;margin:0}.focus-item p{font-size:12px}.report{padding:52px 0}.report-header{display:block;position:relative;margin-bottom:20px}.report-header .eyebrow{padding-right:78px}.report-status{position:absolute;right:0;top:0;font-size:9px;padding:5px 8px}.report h2{font-size:clamp(21px,6.2vw,36px);line-height:1.7;margin-top:17px}.event-name{font-size:17px;line-height:1.7;margin-top:21px}.event-meta{font-size:10px;gap:6px 10px;margin-top:10px}.event-meta span+span{padding-left:10px}.summit-photo{margin-top:25px}.summit-photo figcaption{font-size:9px;gap:10px;margin-top:10px;flex-wrap:wrap}.report-body{padding-top:29px;gap:14px}.report-body .label{font-size:11px}.report-copy{font-size:13px;line-height:2.2}.report-copy p+p{margin-top:17px}.report-subtitle{margin:31px 0 17px;font-size:11px}.report-points{grid-template-columns:1fr;gap:20px}.report-point{display:grid;grid-template-columns:120px 1fr;gap:4px 16px;padding-top:17px}.report-point .point-label{grid-column:1/-1;font-size:9px}.report-point h3{font-size:15px;margin:4px 0 0;line-height:1.9}.report-point p{font-size:12px;margin-top:4px}.report-next{grid-template-columns:1fr;gap:8px;margin-top:26px;padding-top:20px}.report-next p{font-size:12px}.project-grid{grid-template-columns:1fr;gap:29px;padding-top:23px}.project-title{font-size:30px;margin:12px 0 18px}.project-copy{font-size:13px}.award{padding:24px;display:grid;grid-template-columns:1fr auto;gap:0 18px}.award .eyebrow{grid-column:1/-1}.award .award-date{margin-top:16px;font-size:11px;grid-column:1/-1}.award .award-name{font-size:15px;grid-column:1/-1}.award .award-category{font-size:11px;align-self:center;margin-top:10px}.award .award-result{font-size:28px;grid-column:2;grid-row:4}.award .award-by{grid-column:1/-1;margin-top:15px;padding-top:14px;font-size:10px}.connection{margin-top:33px;padding-top:24px}.timeline{grid-template-columns:1fr;gap:10px;border-left:1px solid var(--line);padding-left:20px}.timeline>div:not(.timeline-arrow){position:relative}.timeline>div:not(.timeline-arrow)::before{content:"";position:absolute;width:7px;height:7px;left:-24px;top:7px;border-radius:50%;background:var(--accent)}.timeline .timeline-arrow{padding:0;line-height:1;font-size:0;height:9px}.timeline h4{font-size:13px}.connection-note{font-size:10px;margin-top:20px}.future-grid{grid-template-columns:repeat(2,1fr)}.future-step{padding:20px 18px}.future-step:nth-child(odd){border-left:none}.future-step:nth-child(n+3){border-top:1px solid var(--line)}.future-step h3{font-size:18px;margin-top:10px}.future-step p{font-size:12px}.future-note{font-size:10px}.join{padding:38px 0}.join-inner{display:block}.join h2{font-size:25px}.join p{font-size:12px;line-height:2}.join-button{margin-top:24px;width:100%;font-size:12px;padding:15px 20px}.footer{padding:27px 0}.footer-inner{align-items:start}.footer-brand{font-size:16px}.footer-sub{font-size:9px}.footer-meta{font-size:9px}}
+    @media(max-width:360px){.hero-note{grid-template-columns:1fr}.hero h1{font-size:27px}.hero-note h2{font-size:18px}.hero-note p{max-width:290px}.focus-item{grid-template-columns:95px 1fr}.report-point{grid-template-columns:100px 1fr}.event-meta span:last-child{padding-left:0;border-left:0;flex-basis:100%}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+    @media print{.site-header{position:static}.menu-toggle,.page-nav,.join,.skip{display:none}.section,.report{padding:30px 0}.report{background:#fff;color:#1e2b26}.report .eyebrow,.report-body .label,.report-status,.report-copy strong,.report-copy p,.report-point p,.report-next p,.report-subtitle,.report-next .next-label,.report-point .point-label,.event-meta,.summit-photo figcaption{color:#1e2b26}.report,.knowledge,.future{break-before:page}.wrap{width:100%}.site-header{height:70px}.hero-grid{grid-template-columns:1fr}.hero-note{display:none}.hero h1{font-size:38px}}
   </style>
 </head>
-<body class="page-body">
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="https://koma2thewata910-lab.github.io/taku/" aria-label="拓 TACK ホーム">
+      <span class="brand-mark" aria-hidden="true">拓</span>
+      <span class="brand-meta"><span class="brand-name">TACK</span><span class="brand-sub">学生団体</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="header-nav">メニュー ＋</button>
+    <nav class="header-nav" id="header-nav" aria-label="メインナビゲーション">
+      <a href="https://koma2thewata910-lab.github.io/taku/">Home</a>
+      <a href="#main" class="current" aria-current="page">教育アクセス部</a>
+      <a href="#summit">活動報告</a>
+      <a href="#knowledge">教育構想</a>
+      <a class="join-link" href="https://koma2thewata910-lab.github.io/taku/join.html">参加登録 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="https://koma2thewata910-lab.github.io/taku/">Home</a><span class="divider" aria-hidden="true">/</span><span>Departments</span><span class="divider" aria-hidden="true">/</span><span aria-current="page">教育アクセス部</span></nav>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-top"><span class="dot" aria-hidden="true"></span><p class="eyebrow">Education Access Department</p></div>
+      <div class="hero-grid">
+        <div>
+          <h1 id="hero-title">一人ひとりが、<br><span class="highlight">自分に合った学び</span>を<br>選べる社会へ。</h1>
+          <p class="dept-name">教育アクセス部</p>
+        </div>
+        <aside class="hero-note" aria-labelledby="question-title">
+          <div class="eyebrow">Our Question</div>
+          <h2 id="question-title">どんな学びが必要かを、<br>誰が決めるのか。</h2>
+          <p>背景・学習歴・将来像の違いを出発点に、学ぶ機会と、本人が学び方を選ぶ機会を考えます。</p>
+        </aside>
+      </div>
+    </section>
+    <nav class="page-nav" aria-label="このページの内容">
+      <a href="#vision"><span class="num mono">01</span>部の考え方<span class="arrow" aria-hidden="true">↓</span></a>
+      <a href="#summit"><span class="num mono">02</span>活動報告<span class="arrow" aria-hidden="true">↓</span></a>
+      <a href="#knowledge"><span class="num mono">03</span>教育構想<span class="arrow" aria-hidden="true">↓</span></a>
+      <a href="#next"><span class="num mono">04</span>これから<span class="arrow" aria-hidden="true">↓</span></a>
+    </nav>
+  </div>
 
-  <nav class="site-nav">
-    <a href="index.html" class="nav-logo">拓 <span>TACK</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li class="nav-dept-group">
-        <a href="dept-seisaku.html" class="dept-s">議会政策部</a>
-        <a href="dept-kyoiku.html"  class="dept-k active">教育アクセス部</a>
-        <a href="dept-kagaku.html"  class="dept-g">医療・科学部</a>
-        <a href="dept-nanmin.html"  class="dept-n">国際共生部</a>
-      </li>
-      <li><a href="join.html" class="nav-join">参加登録</a></li>
-    </ul>
-  </nav>
-
-  <!-- PAGE HERO -->
-  <section class="dept-page-hero" data-kanji="育">
-    <div class="dept-page-hero-inner">
-      <div class="dept-color-bar" style="background: var(--col-kyoiku);"></div>
-      <p class="dept-en">Education Access Department</p>
-      <span class="dept-theme-tag">教育機会の格差</span>
-      <h1>教育アクセス部</h1>
-      <p class="mission" style="color: var(--col-kyoiku);">
-        教育機会の格差をデータで可視化し、<br>政策提言につなげる。
-      </p>
+  <section class="section" id="vision" aria-labelledby="vision-title">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">01 / Our Approach<br>部の考え方</p>
+        <div>
+          <h2 class="section-title" id="vision-title">学ぶ機会と、<br>学びを選ぶ機会。</h2>
+          <p class="section-lead">教育アクセス部では、教育を受けられるかだけでなく、一人ひとりが背景や学習経験、将来の希望に応じて学びを選べるかに着目しています。難民当事者との対話から生まれた問いを、難民教育にとどまらない、より広い教育のあり方へつなげます。</p>
+        </div>
+      </div>
+      <div class="focus-grid" aria-label="調査・検討するテーマ">
+        <article class="focus-item"><p class="index mono">ACCESS</p><h3>教育への入口</h3><p>言語、進学情報、経済的な負担など、学ぶ機会にたどり着くまでの障壁を調べます。</p></article>
+        <article class="focus-item"><p class="index mono">CHOICE</p><h3>本人に合う学び</h3><p>背景・学習歴・将来像に応じて、学び方や進路を選択できる教育を構想します。</p></article>
+        <article class="focus-item"><p class="index mono">PARTICIPATION</p><h3>方針への参加</h3><p>必要な支援を本人と考え、その意見を方針の検討や見直しにつなげる方法を探ります。</p></article>
+      </div>
     </div>
   </section>
 
-  <!-- CONTENT -->
-  <section class="section">
-    <a href="index.html#about" class="back-link">団体トップへ戻る</a>
-
-    <!-- 部署方針 -->
-    <div class="fade-up">
-      <p class="section-label">Department Policy</p>
-      <h2 class="section-title">この部署の<em>方針</em></h2>
-      <p class="body-text" style="margin-bottom: 32px;">
-        学力格差や不登校は「個人の努力や意識の問題」ではない。<br>
-        背景にあるのは<strong>教育機会の不均等な配分</strong>という構造的問題だ。<br><br>
-        教育アクセス部は、その実態をデータで可視化し、証拠に基づいた政策提言へとつなげる。<br>
-        感情論ではなく、数字と構造分析で教育格差に向き合う。
-      </p>
-      <div class="connect-block">
-        <p>法律・政策が「どんな教育機会を誰に保障するか」を決める。<br>
-        給付型奨学金の拡充、学校外教育支援の整備——<strong>制度を変えることが根本的な解決</strong>になる。<br>
-        この部署は、そのための言語と証拠をつくる。</p>
+  <article class="report" id="summit" aria-labelledby="summit-title">
+    <div class="wrap">
+      <div class="report-header">
+        <div><p class="eyebrow">02 / Activity Report<br>グローバルユースサミット 活動報告</p><h2 id="summit-title">当事者の声を、<br>教育支援と地域づくりへ。</h2></div>
+        <span class="report-status">発表・提言</span>
       </div>
-    </div>
-
-    <!-- 対象課題 -->
-    <div class="fade-up">
-      <p class="section-label">Focus Areas</p>
-      <h2 class="section-title">対象とする<em>課題領域</em></h2>
-      <div class="data-grid">
-        <div class="data-item">
-          <div class="data-label">Issue 01</div>
-          <div class="data-value">学力格差・<br>不登校問題</div>
-        </div>
-        <div class="data-item">
-          <div class="data-label">Issue 02</div>
-          <div class="data-value">給付型奨学金の<br>不十分な整備</div>
-        </div>
-        <div class="data-item">
-          <div class="data-label">Issue 03</div>
-          <div class="data-value">学校外教育への<br>アクセス格差</div>
-        </div>
-        <div class="data-item">
-          <div class="data-label">Issue 04</div>
-          <div class="data-value">家庭環境による<br>進路機会の差</div>
+      <p class="event-name" lang="en">Global Youth Summit for Change 2026</p>
+      <div class="event-meta"><span>スイス・ジュネーブ</span><span>国連欧州本部での発表</span><span>TACK代表が参加</span></div>
+      <figure class="summit-photo">
+        <img src="assets/gysc-2026.avif" width="1200" height="800" alt="Global Youth Summit for Change参加時、各国の旗が並ぶ通路での集合写真" loading="lazy" decoding="async">
+        <figcaption><span>Global Youth Summit for Change 参加時の集合写真</span><span lang="en">Geneva, Switzerland</span></figcaption>
+      </figure>
+      <div class="report-body">
+        <p class="label">調査から、発表へ。</p>
+        <div class="report-copy">
+          <p>TACK代表は、Global Youth Summit for Changeに参加し、国連欧州本部で、難民問題に関する調査成果を基に発表しました。<strong>難民を一方的な支援対象に固定せず、その声を教育支援の方針や地域づくりに生かす必要性</strong>を提言しました。</p>
+          <p>発表の背景には、難民当事者や支援関係者などへの聞き取りと文献調査があります。支援する側が考える必要と、本人が求める支援とのずれに着目し、難民認定者を交えた企画会議で優先課題を協議しました。</p>
+          <p>そこで、教育が将来の選択肢や地域参加の基盤になるという視点を得て、教育アクセス部を新設。学習経験や置かれた状況、将来の希望によって必要な学びが異なることを踏まえ、本人の意思を尊重する教育支援のあり方を検討してきました。</p>
         </div>
       </div>
+      <h3 class="report-subtitle">活動報告のポイント</h3>
+      <div class="report-points">
+        <section class="report-point" aria-labelledby="point-listen"><p class="point-label" lang="en">LISTEN</p><h3 id="point-listen">声を起点にする</h3><p>当事者の経験や希望を聞き、支援する側の想定とのずれを捉え直しました。</p></section>
+        <section class="report-point" aria-labelledby="point-choice"><p class="point-label" lang="en">CHOICE</p><h3 id="point-choice">選択肢を広げる</h3><p>一人ひとりの背景や将来像に応じた学びを、自らの選択につなげる視点を示しました。</p></section>
+        <section class="report-point" aria-labelledby="point-community"><p class="point-label" lang="en">COMMUNITY</p><h3 id="point-community">地域の担い手へ</h3><p>難民を支援対象にとどめず、その声や経験を地域づくりに生かす必要性を提言しました。</p></section>
+      </div>
+      <div class="report-next"><p class="next-label">今後、深める課題</p><p>意見を聞くことに加え、反映した内容や判断理由を本人に返し、補足や再提案を受けて方針を見直す。そのような対話の仕組みを、今後の活動で検討していきます。</p></div>
     </div>
+  </article>
 
-    <!-- 活動内容 -->
-    <div class="fade-up">
-      <p class="section-label">Activities</p>
-      <h2 class="section-title">主な<em>活動内容</em></h2>
-      <div class="act-list">
-        <div class="act-item">
-          <div class="act-num">ACT. 01</div>
-          <div class="act-body">
-            <h4>教育格差・不登校の実態調査・データ収集</h4>
-            <p>文部科学省・内閣府の統計データをもとに、地域別・所得別の教育格差を可視化する。現場の声を収集するためのヒアリング・アンケートも実施する。</p>
+  <section class="section knowledge" id="knowledge" aria-labelledby="knowledge-title">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">03 / Education Design<br>ナレッジでの教育構想</p>
+        <div><h2 class="section-title" id="knowledge-title">対話で得た問いを、<br>教育全体の構想へ。</h2></div>
+      </div>
+      <div class="project-grid">
+        <div>
+          <p class="project-tag"><span class="dot" aria-hidden="true"></span>構想・発表</p>
+          <h3 class="project-title">個性設計型<br>スクールデザイナー</h3>
+          <div class="project-copy">
+            <p>難民当事者との対話や調査で得た「必要な学びは一人ひとり異なる」という視点を、教育全体への提案へ発展させた構想です。背景や希望に応じて、自ら学びを選択できる教育のあり方を提案しました。</p>
+            <p>この構想を代表がナレッジイノベーションアワードで発表。教育アクセス部では、難民教育の調査と、より広い学習者のための教育構想を、共通する問いの下でつなげています。</p>
           </div>
         </div>
-        <div class="act-item">
-          <div class="act-num">ACT. 02</div>
-          <div class="act-body">
-            <h4>学習支援ボランティアの企画・連携</h4>
-            <p>NPOや地域団体と連携した学習支援活動を企画する。単なるボランティアに留まらず、現場で得た実態をデータとして政策提言に還元するサイクルをつくる。</p>
-          </div>
-        </div>
-        <div class="act-item">
-          <div class="act-num">ACT. 03</div>
-          <div class="act-body">
-            <h4>教育政策への提言書作成</h4>
-            <p>給付型奨学金の拡充・学校外教育支援の制度整備を中心に、エビデンスに基づく提言書を作成する。合同イベントを通じて議会・社会に届ける。</p>
-          </div>
-        </div>
+        <aside class="award" aria-label="ナレッジイノベーションアワードでの受賞">
+          <p class="eyebrow">Knowledge Innovation Award</p>
+          <p class="award-date mono"><time datetime="2026-03-20">2026.03.20</time></p>
+          <p class="award-name">第13回<br>ナレッジイノベーション<br>アワード</p>
+          <p class="award-category">高校生アイデア部門</p>
+          <p class="award-result">優秀賞</p>
+          <p class="award-by">発表・受賞：代表 小松澤拓登（個人）<br>「個性設計型スクールデザイナー」</p>
+        </aside>
       </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="cta-strip fade-up">
-      <div>
-        <h3>教育格差に、データで向き合う。</h3>
-        <p>この部署での活動に興味のある方はこちらから</p>
+      <div class="connection">
+        <p class="connection-label">活動のつながり</p>
+        <div class="timeline" aria-label="調査からナレッジ、サミットへ続く活動の流れ">
+          <div><p class="time">対話・調査</p><h4>難民当事者と<br>優先課題を協議</h4></div>
+          <div class="timeline-arrow" aria-hidden="true">→</div>
+          <div><p class="time">2026年3月</p><h4>ナレッジで<br>教育構想を発表</h4></div>
+          <div class="timeline-arrow" aria-hidden="true">→</div>
+          <div><p class="time">その後</p><h4>国連欧州本部でのサミットで<br>調査成果を基に発表</h4></div>
+        </div>
+        <p class="connection-note">ナレッジでは教育全体への構想を、サミットでは難民問題の調査成果を基にした提言を発表しました。異なる発表を、「一人ひとりが学びを選ぶ」という問いで結んでいます。</p>
       </div>
-      <a href="join.html">参加登録する</a>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="footer-logo">拓 / TACK</div>
-    <p class="footer-copy">© 2026 TACK — 学生団体 拓. All rights reserved.</p>
-  </footer>
+  <section class="section future" id="next" aria-labelledby="next-title">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">04 / Next Steps<br>これからの活動</p>
+        <div><h2 class="section-title" id="next-title">聞いて、考えて、<br>本人と見直す。</h2><p class="section-lead">難民教育を重点的な調査対象としながら、背景や学習経験の異なる人が学びを選べる教育を考えます。今後は、当事者への説明と、再び意見を受ける過程も含めた活動の進め方を検討します。</p></div>
+      </div>
+      <div class="future-grid">
+        <article class="future-step"><p class="step-num mono">01 / LISTEN</p><h3>聞く</h3><p>本人の経験や希望、必要な学びを、対話から捉えます。</p></article>
+        <article class="future-step"><p class="step-num mono">02 / UNDERSTAND</p><h3>整理する</h3><p>共通する障壁と、個別に異なる事情を分けて考えます。</p></article>
+        <article class="future-step"><p class="step-num mono">03 / DESIGN</p><h3>構想する</h3><p>学習歴や将来像に応じた教育・支援のあり方を検討します。</p></article>
+        <article class="future-step"><p class="step-num mono">04 / REVIEW</p><h3>見直す</h3><p>判断理由を共有し、補足や再提案から方針を見直す方法を探ります。</p></article>
+      </div>
+      <p class="future-note">構想の実装や、意見の反映結果を共有する仕組みは、今後の検討課題として位置づけています。</p>
+    </div>
+  </section>
 
-  <script>
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-  </script>
+  <section class="join" aria-labelledby="join-title">
+    <div class="wrap join-inner">
+      <div><h2 id="join-title">ともに、学びの選択肢を考える。</h2><p>教育や国際共生に関心のある学生の参加を募集しています。</p></div>
+      <a class="join-button" href="https://koma2thewata910-lab.github.io/taku/join.html">参加登録へ<span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div><a class="footer-brand" href="https://koma2thewata910-lab.github.io/taku/">拓 / TACK</a><p class="footer-sub">教育アクセス部</p></div>
+    <div class="footer-meta"><p>© 2026 TACK — 学生団体 拓</p><p>Education Access Department</p></div>
+  </div>
+</footer>
+<script>
+(() => {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('header-nav');
+  if (!toggle || !nav) return;
+  const setOpen = (open) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? '閉じる −' : 'メニュー ＋';
+    nav.classList.toggle('is-open', open);
+  };
+  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', (event) => { if (event.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
+  });
+  const media = window.matchMedia('(min-width: 761px)');
+  media.addEventListener('change', (event) => { if (event.matches) setOpen(false); });
+})();
+</script>
 </body>
 </html>
