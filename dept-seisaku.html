@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>議会政策部 — 拓 / TACK</title>
-  <meta name="description" content="議会政策部は、若者が政策を自分の言葉で考え議員に直接届ける場をつくります。総合開拓者サミット2026を大阪府議会にて開催予定。" />
+  <title>政策提言部 — 拓 / TACK</title>
+  <meta name="description" content="政策提言部は、難民支援に関する文献調査と聞き取りの論点整理に取り組みます。現在の調査活動と、ワークショップや対話の場づくりなどの将来構想を紹介します。" />
   <meta name="author" content="学生団体 拓 / TACK" />
-  <meta property="og:title" content="議会政策部 — 拓 / TACK" />
-  <meta property="og:description" content="議会政策部は、若者が政策を自分の言葉で考え議員に直接届ける場をつくります。総合開拓者サミット2026を大阪府議会にて開催予定。" />
+  <meta property="og:title" content="政策提言部 — 拓 / TACK" />
+  <meta property="og:description" content="政策提言部は、難民支援に関する文献調査と聞き取りの論点整理に取り組みます。現在の調査活動と、ワークショップや対話の場づくりなどの将来構想を紹介します。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://koma2thewata910-lab.github.io/taku/dept-seisaku.html" />
   <meta property="og:image" content="https://koma2thewata910-lab.github.io/taku/taku-shodo.png" />
@@ -16,202 +16,162 @@
   <link rel="canonical" href="https://koma2thewata910-lab.github.io/taku/dept-seisaku.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&amp;family=Noto+Serif+JP:wght@300;400;700;900&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     :root { --dept-color: var(--col-seisaku); }
-
-    .act-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 64px; }
-    .act-item {
-      background: var(--washi);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 32px;
-      padding: 32px 28px;
-      align-items: start;
-      transition: background 0.25s;
+    .dept-page-hero { padding-top: clamp(60px,9vw,100px); padding-bottom: clamp(44px,6vw,72px); }
+    .dept-page-hero .mission { max-width: 780px; }
+    .section-label { color: var(--dept-color); }
+    .section-label::after { background: var(--dept-color); }
+    .section-title em { color: var(--dept-color); }
+    .back-link { display: inline-flex; gap: 10px; color: var(--ink-light); font-size: 12px; text-decoration: none; margin-bottom: 36px; }
+    .back-link::before { content: '←'; }
+    .body-text { max-width: 820px; font-weight: 400; }
+    .body-text + .body-text { margin-top: 20px; }
+    .policy-copy { margin-bottom: 28px; }
+    .status-note { padding: 20px 24px; border-left: 3px solid var(--dept-color); background: var(--washi-2); margin-bottom: 56px; }
+    .status-note p { font-size: 14px; line-height: 2; color: var(--ink-light); }
+    .status-note strong { color: var(--ink); font-weight: 500; }
+    .section-intro { font-size: 14px; line-height: 2; color: var(--ink-light); margin: -20px 0 28px; max-width: 820px; }
+    .act-list { border: 1px solid var(--line); margin-bottom: 56px; }
+    .act-item { display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 24px; padding: 28px; background: var(--washi); }
+    .act-item + .act-item { border-top: 1px solid var(--line); }
+    .act-num { font-family: 'Inter',sans-serif; font-size: 11px; letter-spacing: .13em; color: var(--dept-color); padding-top: 5px; white-space: nowrap; }
+    .act-body h3 { font-family: 'Noto Serif JP',serif; font-size: clamp(17px,2vw,20px); line-height: 1.7; font-weight: 700; margin-bottom: 10px; }
+    .act-body p { font-size: 14px; color: var(--ink-light); line-height: 2; font-weight: 400; }
+    .status-tag { display: inline-block; padding: 4px 10px; border: 1px solid currentColor; color: var(--dept-color); font-size: 11px; letter-spacing: .06em; line-height: 1.5; margin-bottom: 12px; }
+    .future-list { background: var(--washi-2); }
+    .future-list .act-item { background: transparent; }
+    .future-list .status-tag { color: var(--ink-light); border-style: dashed; }
+    .future-list .act-num { color: var(--ink-light); }
+    .related-report { margin: 0 0 48px; padding: 22px 24px; border: 1px solid var(--line); }
+    .related-report p { font-size: 14px; line-height: 2; color: var(--ink-light); margin-bottom: 12px; }
+    .related-report a { color: var(--dept-color); font-size: 13px; text-underline-offset: 5px; }
+    .member-banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; background: var(--dept-color); color: #fff; padding: clamp(28px,5vw,48px); }
+    .member-banner h2 { font-family: 'Noto Serif JP',serif; font-size: clamp(20px,3vw,26px); line-height: 1.7; margin-bottom: 10px; }
+    .member-banner p { font-size: 13px; line-height: 1.9; }
+    .member-banner a { color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.7); padding: 14px 20px; font-size: 13px; }
+    .member-banner a:hover { background: rgba(255,255,255,.1); }
+    .dept-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 32px; font-size: 12px; }
+    .dept-links a { color: var(--ink-light); text-underline-offset: 4px; }
+    a:focus-visible { outline: 2px solid var(--dept-color); outline-offset: 5px; }
+    @media(max-width:600px) {
+      .act-item { grid-template-columns: minmax(0,1fr); gap: 12px; padding: 24px 20px; }
+      .status-note { padding: 18px 20px; }
+      .section-title { margin-bottom: 28px; }
+      .section-intro { margin-top: 0; }
+      .member-banner a { display: block; text-align: center; width: 100%; }
+      .dept-page-hero .dept-en { letter-spacing: .12em; }
     }
-    .act-item:hover { background: var(--washi-2); }
-    .act-num {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px; letter-spacing: 0.3em;
-      color: var(--dept-color);
-      font-weight: 600; padding-top: 3px;
-      white-space: nowrap;
-    }
-    .act-body h4 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(16px, 1.8vw, 19px);
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: 0.04em;
-    }
-    .act-body p {
-      font-size: 13px; color: var(--ink-light);
-      line-height: 1.9; font-weight: 300;
-    }
-    .act-body .tag {
-      display: inline-block;
-      font-size: 9px; letter-spacing: 0.25em;
-      color: var(--dept-color);
-      border: 1px solid rgba(192,57,43,0.25);
-      padding: 3px 10px; margin-bottom: 12px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .connect-block {
-      border-left: 3px solid var(--dept-color);
-      padding: 24px 28px;
-      background: var(--washi-2);
-      margin-bottom: 64px;
-    }
-    .connect-block p {
-      font-size: 15px; line-height: 1.95;
-      color: var(--ink-light); font-weight: 300;
-    }
-    .connect-block strong { color: var(--ink); font-weight: 500; }
-
-    .flagship-banner {
-      background: var(--dept-color);
-      color: #fff;
-      padding: clamp(40px, 6vw, 64px) clamp(28px, 5vw, 56px);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 24px;
-    }
-    @media (max-width: 600px) { .flagship-banner { grid-template-columns: 1fr; } }
-    .flagship-banner h3 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(20px, 2.8vw, 28px);
-      font-weight: 700; margin-bottom: 8px; letter-spacing: 0.05em;
-    }
-    .flagship-banner p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.8; font-weight: 300; }
-    .flagship-banner a {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.5);
-      color: #fff; font-size: 11px;
-      letter-spacing: 0.22em; padding: 14px 28px;
-      text-decoration: none; white-space: nowrap;
-      font-family: 'Noto Sans JP', sans-serif;
-      transition: background 0.2s;
-    }
-    .flagship-banner a:hover { background: rgba(255,255,255,0.12); }
-
-    .back-link {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; letter-spacing: 0.2em;
-      color: var(--ink-muted); text-decoration: none;
-      font-family: 'Inter', sans-serif;
-      transition: color 0.2s;
-      margin-bottom: 40px;
-    }
-    .back-link::before { content: '←'; font-size: 13px; }
-    .back-link:hover { color: var(--ink); }
   </style>
 </head>
 <body class="page-body">
-
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="メインナビゲーション">
     <a href="index.html" class="nav-logo">拓 <span>TACK</span></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li class="nav-dept-group">
-        <a href="dept-seisaku.html" class="dept-s active">議会政策部</a>
-        <a href="dept-kyoiku.html"  class="dept-k">教育アクセス部</a>
-        <a href="dept-kagaku.html"  class="dept-g">医療・科学部</a>
-        <a href="dept-nanmin.html"  class="dept-n">国際共生部</a>
+        <a href="dept-seisaku.html" class="dept-s active" aria-current="page">政策提言部</a>
+        <a href="dept-kyoiku.html" class="dept-k">教育アクセス部</a>
+        <a href="dept-nanmin.html" class="dept-n">国際共生部</a>
       </li>
       <li><a href="join.html" class="nav-join">参加登録</a></li>
     </ul>
   </nav>
-
-  <!-- PAGE HERO -->
-  <section class="dept-page-hero" data-kanji="政">
+  <main>
+  <header class="dept-page-hero" data-kanji="政">
     <div class="dept-page-hero-inner">
-      <div class="dept-color-bar" style="background: var(--col-seisaku);"></div>
-      <p class="dept-en">Parliamentary Policy Department</p>
-      <span class="dept-theme-tag">政治参加の格差</span>
-      <h1>議会政策部</h1>
-      <p class="mission" style="color: var(--col-seisaku);">
-        若者が政策を自分の言葉で考え、<br>議員に直接届ける場をつくる。
-      </p>
+      <div class="dept-color-bar" style="background: var(--dept-color);"></div>
+      <p class="dept-en">Policy Proposals Department</p>
+      <span class="dept-theme-tag">難民支援の調査・論点整理</span>
+      <h1>政策提言部</h1>
+      <p class="mission" style="color: var(--dept-color);">現場の声と文献をもとに、<br>支援や制度について考える。</p>
     </div>
-  </section>
-
-  <!-- CONTENT -->
-  <section class="section">
+  </header>
+  <div class="section">
     <a href="index.html#about" class="back-link">団体トップへ戻る</a>
-
-    <!-- 部署方針 -->
-    <div class="fade-up">
+    <section aria-labelledby="policy-title">
       <p class="section-label">Department Policy</p>
-      <h2 class="section-title">この部署の<em>方針</em></h2>
-      <p class="body-text" style="margin-bottom: 32px;">
-        議会政策部の核心は、若者が政治と本気で向き合う「場」をつくることだ。<br>
-        関西ユースサミットのような大規模イベントの企画・運営を通じて、<br>
-        若者と社会・議員をつなぐプラットフォームを構築する。<br><br>
-        政策提言は、その先にある目標だ。<br>
-        まずはディスカッションと対話の場を積み重ね、<strong>若者が政治を「自分事」として捉える文化</strong>をつくる。
-      </p>
-      <div class="connect-block">
-        <p>「若者の政治離れ」は意識の問題ではなく<strong>構造の問題</strong>だ。<br>
-        イベントに参加した若者が、社会課題を「自分で考えるもの」として初めて向き合う——<br>
-        その体験の積み重ねが、将来の政策提言につながる土台となる。</p>
+      <h2 class="section-title" id="policy-title">この部署の<em>方針</em></h2>
+      <div class="policy-copy">
+        <p class="body-text">政策提言部は、難民当事者や支援関係者への聞き取りと文献調査から、支援や制度に関する論点を整理する部署です。現在は、大規模イベントの運営ではなく、調査と、その内容を団体内で共有する活動を中心にしています。</p>
+        <p class="body-text">TACKでは、国際共生部と政策提言部の論点や質問を集約し、代表が難民当事者、支援関係者、国会議員、行政職員などへの聞き取りを行ってきました。取材で得た論点を共有し、難民認定者と優先課題を協議したことが、教育アクセス部の新設につながっています。</p>
       </div>
-    </div>
-
-    <!-- 活動内容 -->
-    <div class="fade-up">
-      <p class="section-label">Activities</p>
-      <h2 class="section-title">主な<em>活動内容</em></h2>
+      <aside class="status-note"><p><strong>現在は調査を中心に、提案の土台をつくる段階です。</strong><br>ワークショップやサミットの開催、議会への提言書提出は、将来的な構想・目標として位置づけています。</p></aside>
+    </section>
+    <section aria-labelledby="activities-title">
+      <p class="section-label">Current Research</p>
+      <h2 class="section-title" id="activities-title">現在の<em>調査活動</em></h2>
+      <p class="section-intro">国際共生部と連携し、TACKとして進めてきた調査の中で、次の活動に取り組んでいます。</p>
       <div class="act-list">
-        <div class="act-item">
-          <div class="act-num">ACT. 01</div>
+        <article class="act-item">
+          <p class="act-num">ACT. 01</p>
           <div class="act-body">
-            <span class="tag">Flagship</span>
-            <h4>総合開拓者サミットの企画・運営</h4>
-            <p>若者・議員・専門家が一堂に集まる大規模イベントの企画から当日運営まで一手に担う。関西ユースサミットのような形式で、若者が社会課題と本気で向き合う場をつくる。第一回の開催日時・場所は現在調整中。</p>
+            <span class="status-tag">現在の調査活動</span>
+            <h3>文献調査</h3>
+            <p>難民支援や教育に関する文献を読み、支援する側と当事者の認識の違いなどを調べています。聞き取りで生まれた問いを、文献と照らし合わせて考えています。</p>
           </div>
-        </div>
-        <div class="act-item">
-          <div class="act-num">ACT. 02</div>
+        </article>
+        <article class="act-item">
+          <p class="act-num">ACT. 02</p>
           <div class="act-body">
-            <h4>政策討論ワークショップ</h4>
-            <p>月1〜2回の少人数ディスカッション。政治リテラシーや経験に関係なく、誰でも参加できる形式で設計する。テーマは教育・医療・難民・政治参加など複数領域を横断的に扱う。</p>
+            <span class="status-tag">現在の調査活動</span>
+            <h3>聞き取りに向けた質問・論点の整理</h3>
+            <p>国際共生部と政策提言部の論点や質問を集約し、代表による聞き取りにつなげてきました。取材はTACKの活動として行っています。</p>
           </div>
-        </div>
-        <div class="act-item">
-          <div class="act-num">ACT. 03</div>
+        </article>
+        <article class="act-item">
+          <p class="act-num">ACT. 03</p>
           <div class="act-body">
-            <span class="tag">Future Goal</span>
-            <h4>政策提言の議会への提出（将来目標）</h4>
-            <p>イベントやワークショップを積み重ねた先に、若者の声を政策として形にし議会に届けることを目指す。まずは場をつくり、対話を深め、提言できる土台を育てていく。</p>
+            <span class="status-tag">現在の調査活動</span>
+            <h3>調査内容の共有と優先課題の協議</h3>
+            <p>取材で得た論点を団体内で共有し、難民認定者と優先課題を協議しました。教育に関する調査を、教育アクセス部の活動へつなげています。</p>
           </div>
-        </div>
+        </article>
       </div>
-    </div>
-
-    <!-- flagship banner -->
-    <div class="flagship-banner fade-up">
-      <div>
-        <h3>総合開拓者サミット 2026</h3>
-        <p>開催日時・場所　未定<br>第一回の詳細は現在調整中</p>
+    </section>
+    <section aria-labelledby="future-title">
+      <p class="section-label">Future Plans</p>
+      <h2 class="section-title" id="future-title">今後、<em>実現したいこと</em></h2>
+      <p class="section-intro">以下は、将来実現したい構想です。具体的な開催時期・頻度・形式は未定です。</p>
+      <div class="act-list future-list">
+        <article class="act-item">
+          <p class="act-num">PLAN 01</p>
+          <div class="act-body">
+            <span class="status-tag">将来構想</span>
+            <h3>政策討論ワークショップ（将来構想）</h3>
+            <p>調査で見えてきた課題について、学生が文献や聞き取りの内容をもとに話し合うワークショップを、将来的に実現したいと考えています。月ごとの開催回数は定めず、内容や実施方法を検討していきます。</p>
+          </div>
+        </article>
+        <article class="act-item">
+          <p class="act-num">PLAN 02</p>
+          <div class="act-body">
+            <span class="status-tag">将来構想</span>
+            <h3>対話・発表の場づくり（将来構想）</h3>
+            <p>調査内容を共有し、学生や支援関係者などと意見を交わせる場を将来的に設けたいと考えています。サミット形式の催しも構想の一つです。規模や時期、参加者などは、調査の進捗や運営体制を踏まえて検討していきます。</p>
+          </div>
+        </article>
+        <article class="act-item">
+          <p class="act-num">PLAN 03</p>
+          <div class="act-body">
+            <span class="status-tag">将来構想</span>
+            <h3>調査に基づく提案（将来目標）</h3>
+            <p>調査を重ね、当事者と内容を検討しながら、支援や制度についての提案にまとめることを目指します。議会や行政への提言書提出についても、提出先や時期を含めた将来の検討課題です。</p>
+          </div>
+        </article>
       </div>
-      <a href="join.html">参加登録する</a>
-    </div>
-  </section>
+    </section>
 
-  <footer class="site-footer">
-    <div class="footer-logo">拓 / TACK</div>
-    <p class="footer-copy">© 2026 TACK — 学生団体 拓. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-  </script>
+    <section class="member-banner" aria-labelledby="join-title">
+      <div><h2 id="join-title">調査と対話を、ともに。</h2><p>難民支援や教育、社会課題の調査に関心のある学生を募集しています。<br>以下は団体への参加登録です。イベントの参加申込みではありません。</p></div>
+      <a href="join.html">団体への参加登録</a>
+    </section>
+    <nav class="dept-links" aria-label="関連する部署">
+      <a href="dept-seisaku.html">政策提言部</a><a href="dept-kyoiku.html">教育アクセス部</a><a href="dept-nanmin.html">国際共生部</a>
+    </nav>
+  </div>
+  </main>
+  <footer class="site-footer"><div class="footer-logo">拓 / TACK</div><p class="footer-copy">© 2026 TACK — 学生団体 拓. All rights reserved.</p></footer>
 </body>
 </html>
