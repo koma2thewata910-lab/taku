@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>拓 / TACK — 一人の声から、ともに考え、動き出す。</title>
+  <title>拓 / TACK — 一人の声に向き合い、共に考え、新たな道を拓く</title>
   <meta name="description" content="学生団体 拓（TACK）は、難民との出会いを原点に、一人ひとりの経験や希望を聞き、必要な支援をともに考えます。対話から生まれた問いを、調査と提案につなげていきます。" />
   <meta name="keywords" content="学生団体,拓,TACK,政策提言,若者,議会,関西,大阪,政治参加,社会課題" />
   <meta name="author" content="学生団体 拓 / TACK" />
   <!-- OGP -->
-  <meta property="og:title" content="拓 / TACK — 一人の声から、ともに考え、動き出す。" />
+  <meta property="og:title" content="拓 / TACK — 一人の声に向き合い、共に考え、新たな道を拓く" />
   <meta property="og:description" content="学生団体 拓（TACK）は、難民との出会いを原点に、一人ひとりの経験や希望を聞き、必要な支援をともに考えます。対話から生まれた問いを、調査と提案につなげていきます。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://koma2thewata910-lab.github.io/taku/" />
@@ -16,7 +16,7 @@
   <meta property="og:locale" content="ja_JP" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="拓 / TACK — 一人の声から、ともに考え、動き出す。" />
+  <meta name="twitter:title" content="拓 / TACK — 一人の声に向き合い、共に考え、新たな道を拓く" />
   <meta name="twitter:description" content="学生団体 拓（TACK）は、難民との出会いを原点に、一人ひとりの経験や希望を聞き、必要な支援をともに考えます。対話から生まれた問いを、調査と提案につなげていきます。" />
   <meta name="twitter:image" content="https://koma2thewata910-lab.github.io/taku/taku-shodo.png" />
   <!-- canonical -->
@@ -1207,7 +1207,15 @@
       align-items: center;
     }
     .hero-with-logo .hero-text-col { grid-area: copy; min-width: 0; }
-    .hero-with-logo .hero-copy { font-size: clamp(32px, 4.2vw, 60px); }
+    .hero-with-logo .hero-copy {
+      font-family: 'Noto Serif JP', 'Noto Serif CJK JP', 'Yu Mincho', serif;
+      font-size: clamp(32px, 4.2vw, 58px);
+      line-height: 1.5;
+      letter-spacing: .015em;
+      margin-bottom: 30px;
+    }
+    .hero-with-logo .hero-copy-line { white-space: nowrap; }
+    .hero-with-logo .hero-copy em { margin-top: .08em; }
     .hero-brand {
       grid-area: logo;
       position: relative;
@@ -1249,7 +1257,12 @@
         grid-template-areas: "copy" "logo" "stats";
         row-gap: 28px;
       }
-      .hero-with-logo .hero-copy { font-size: clamp(32px, 6.6vw, 46px); }
+      .hero-with-logo .hero-copy {
+        font-size: clamp(24px, 7.8vw, 44px);
+        line-height: 1.6;
+        letter-spacing: .01em;
+        margin-bottom: 24px;
+      }
       .hero-brand { width: min(48vw, 200px); justify-self: center; }
       .hero-with-logo .hero-stats { max-width: none; gap: 12px; }
       .hero-with-logo .hero-stat-label { font-size: 8px; letter-spacing: .04em; line-height: 1.6; }
@@ -1285,7 +1298,7 @@
     <div class="hero-inner fade-up">
       <div class="hero-text-col">
         <p class="hero-org-label">学生団体 拓 / TACK &nbsp;—&nbsp; 2025年設立</p>
-        <h1 class="hero-copy" id="hero-heading"><span class="hero-copy-line">一人の声から、</span><em class="hero-copy-line"><span class="hero-copy-phrase">ともに考え、</span><span class="hero-copy-phrase">動き出す。</span></em></h1>
+        <h1 class="hero-copy" id="hero-heading"><span class="hero-copy-line">一人の声に向き合い、</span><span class="hero-copy-line">共に考え、</span><em class="hero-copy-line">新たな道を拓く</em></h1>
         <p class="hero-sub">
           <span class="hero-sub-line">難民との出会いから、私たちの活動は始まりました。</span>
           <span class="hero-sub-line">一人ひとりの経験や希望を聞き、必要な支援をともに考える。</span>
