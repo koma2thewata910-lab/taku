@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>拓 / TACK — 若者が社会を動かす側へ</title>
-  <meta name="description" content="学生団体 拓（TACK）は、カナダでの難民との出会いを原点に、代表・小松澤拓登が設立した若者の政策参加団体です。政策提言部・教育アクセス部・国際共生部の3部署が連携し、若者の提言を議会に届けます。" />
+  <title>拓 / TACK — 一人の声から、ともに考え、動き出す。</title>
+  <meta name="description" content="学生団体 拓（TACK）は、難民との出会いを原点に、一人ひとりの経験や希望を聞き、必要な支援をともに考えます。対話から生まれた問いを、調査と提案につなげていきます。" />
   <meta name="keywords" content="学生団体,拓,TACK,政策提言,若者,議会,関西,大阪,政治参加,社会課題" />
   <meta name="author" content="学生団体 拓 / TACK" />
   <!-- OGP -->
-  <meta property="og:title" content="拓 / TACK — 若者が社会を動かす側へ" />
-  <meta property="og:description" content="カナダでの難民との出会いを原点に、若者が政策の作り手になることを目指す学生団体。困っている若者に手を差し伸べ、一緒に社会を変えていきます。" />
+  <meta property="og:title" content="拓 / TACK — 一人の声から、ともに考え、動き出す。" />
+  <meta property="og:description" content="学生団体 拓（TACK）は、難民との出会いを原点に、一人ひとりの経験や希望を聞き、必要な支援をともに考えます。対話から生まれた問いを、調査と提案につなげていきます。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://koma2thewata910-lab.github.io/taku/" />
   <meta property="og:image" content="https://koma2thewata910-lab.github.io/taku/tack-logo-new.png" />
   <meta property="og:locale" content="ja_JP" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="拓 / TACK — 若者が社会を動かす側へ" />
-  <meta name="twitter:description" content="学生団体 拓（TACK）は、若者が政策の作り手になることを目指す団体です。" />
+  <meta name="twitter:title" content="拓 / TACK — 一人の声から、ともに考え、動き出す。" />
+  <meta name="twitter:description" content="学生団体 拓（TACK）は、難民との出会いを原点に、一人ひとりの経験や希望を聞き、必要な支援をともに考えます。対話から生まれた問いを、調査と提案につなげていきます。" />
   <meta name="twitter:image" content="https://koma2thewata910-lab.github.io/taku/taku-shodo.png" />
   <!-- canonical -->
   <link rel="canonical" href="https://koma2thewata910-lab.github.io/taku/" />
@@ -31,7 +31,7 @@
         "name": "学生団体 拓",
         "alternateName": "TACK",
         "url": "https://koma2thewata910-lab.github.io/taku/",
-        "description": "若者が政策の作り手になることを目指す学生団体。政策提言部・教育アクセス部・国際共生部の3部署が連携し、総合開拓者サミットを通じて若者の提言を議会に届ける。",
+        "description": "学生団体 拓（TACK）は、難民との出会いを原点に、一人ひとりの経験や希望を聞き、必要な支援をともに考えます。対話から生まれた問いを、調査と提案につなげていきます。",
         "founder": {
           "@type": "Person",
           "name": "小松澤拓登",
@@ -897,7 +897,6 @@
       font-family: 'Inter', sans-serif;
       font-weight: 300;
     }
-
     .award-prize {
       font-size: 9px;
       letter-spacing: 0.22em;
@@ -1120,6 +1119,82 @@
       line-height: 1.8;
       font-weight: 300;
     }
+
+    /* ======== HERO / VOICE & DIALOGUE ======== */
+    .hero {
+      min-height: calc(100vh - var(--nav-h));
+      min-height: calc(100svh - var(--nav-h));
+      justify-content: center;
+      padding: clamp(72px, 8vw, 112px) clamp(24px, 6vw, 80px) 88px;
+    }
+    .hero-overlay {
+      background: linear-gradient(110deg, rgba(10,8,6,.91) 0%, rgba(10,8,6,.78) 52%, rgba(10,8,6,.57) 100%);
+    }
+    .hero-inner {
+      margin-top: 0;
+      padding-bottom: 0;
+      align-items: flex-start;
+      text-align: left;
+      opacity: 1;
+      transform: none;
+    }
+    .hero-text-col { width: 100%; align-items: flex-start; }
+    .hero-org-label { color: rgba(255,255,255,.72); letter-spacing: .24em; margin-bottom: 26px; flex-wrap: wrap; }
+    .hero-copy {
+      font-size: clamp(40px, 4.8vw, 68px);
+      line-height: 1.55;
+      letter-spacing: .025em;
+      font-weight: 700;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 24px rgba(0,0,0,.18);
+    }
+    .hero-copy-line { display: block; }
+    .hero-copy-phrase { display: inline-block; white-space: nowrap; }
+    .hero-copy em { color: #ee8878; }
+    .hero-sub {
+      max-width: 740px;
+      font-size: clamp(14px, 1.2vw, 16px);
+      line-height: 2.15;
+      font-weight: 400;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 34px;
+      line-break: strict;
+    }
+    .hero-sub-line { display: block; }
+    .hero-sub-line + .hero-sub-line { margin-top: .25em; }
+    .hero-btns { justify-content: flex-start; }
+    .hero-btns a { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; }
+    .hero-btns .btn-ghost { color: #fff; border-color: rgba(255,255,255,.5); }
+    .hero a:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+    .hero-stats { margin-top: 42px; padding-top: 26px; }
+    .hero-stat-label { color: rgba(255,255,255,.62); }
+    .hero .hanko { top: 28px; }
+    .hero .scroll-hint { bottom: 16px; }
+    @media (max-width: 760px) {
+      .hero { padding-top: 72px; padding-bottom: 40px; }
+      .hero-inner, .hero-text-col { align-items: flex-start; text-align: left; }
+      .hero-copy { font-size: clamp(32px, 6.6vw, 46px); margin-bottom: 22px; }
+      .hero-copy-phrase { display: block; }
+      .hero-org-label { font-size: 9px; line-height: 1.9; letter-spacing: .09em; gap: 8px; margin-bottom: 20px; }
+      .hero-org-label::before { width: 20px; flex-shrink: 0; }
+      .hero-sub { font-size: 14px; line-height: 2; max-width: 38em; margin-bottom: 28px; }
+      .hero-sub-line + .hero-sub-line { margin-top: .5em; }
+      .hero-btns { gap: 12px; }
+      .hero-btns a { font-size: 11px; letter-spacing: .08em; padding: 14px 22px; }
+      .hero-stats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 18px; margin-top: 32px; padding-top: 24px; }
+      .hero-stat-num { font-size: 30px; }
+      .hero-stat-label { font-size: 9px; letter-spacing: .12em; }
+      .hero .hanko { width: 32px; height: 32px; top: 20px; right: 24px; font-size: 11px; opacity: .7; }
+      .hero .scroll-hint { display: none; }
+    }
+    @media (max-width: 380px) {
+      .hero-btns { width: 100%; }
+      .hero-btns a { flex: 1; padding-inline: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg, .hero .scroll-hint { animation: none; }
+      .hero-btns a { transition: none; }
+    }
   </style>
 </head>
 <body class="page-body">
@@ -1140,7 +1215,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-heading">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
 
@@ -1148,11 +1223,11 @@
     <div class="hero-inner fade-up">
       <div class="hero-text-col">
         <p class="hero-org-label">学生団体 拓 / TACK &nbsp;—&nbsp; 2025年設立</p>
-        <h1 class="hero-copy">若者が、<em>政策の<br>作り手</em>になる。</h1>
+        <h1 class="hero-copy" id="hero-heading"><span class="hero-copy-line">一人の声から、</span><em class="hero-copy-line"><span class="hero-copy-phrase">ともに考え、</span><span class="hero-copy-phrase">動き出す。</span></em></h1>
         <p class="hero-sub">
-          難民との出会いが、すべての出発点だった。<br>
-          高校生だから動けない、ではない——高校生だからこそ届く声がある。<br>
-          経験も知識も問わない。必要なのは、動く意志だけだ。
+          <span class="hero-sub-line">難民との出会いから、私たちの活動は始まりました。</span>
+          <span class="hero-sub-line">一人ひとりの経験や希望を聞き、必要な支援をともに考える。</span>
+          <span class="hero-sub-line">対話から生まれた問いを、調査と提案につなげていきます。</span>
         </p>
         <div class="hero-btns">
           <a href="join.html" class="btn-primary">今すぐ参加する</a>
